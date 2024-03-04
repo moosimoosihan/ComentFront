@@ -1,0 +1,1 @@
+/* 모든 버튼에 대한 css를 추가 .변수명 으로 사용, 사용시에는 import 후 import 한 이름으로 태그안에 <button className={이름.변수명} /> 사용 가능 */
