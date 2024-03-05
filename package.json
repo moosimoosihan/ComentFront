@@ -6,7 +6,11 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
     "axios": "^1.6.7",
+=======
+    "prettier": "^3.2.5",
+>>>>>>> 6b7ee3b4e58961097e55c7604952dbc4d44f8b32
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-activity-feed": "^1.4.0",
@@ -22,7 +26,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint":  "eslint ./src",
+    "lint:fix": "eslint --fix ./src",
+    "format": "prettier --check ./src",
+    "format:fix": "prettier --write ./src"
   },
   "eslintConfig": {
     "extends": [
@@ -41,5 +49,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.2.62",
+    "@types/react-dom": "^18.2.19",
+    "typescript": "^5.3.3"
   }
 }
