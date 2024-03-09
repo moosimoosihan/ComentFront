@@ -11,8 +11,7 @@ function LoginPage() {
     setModalOpen(true)
   }
   const closeModal = () => {
-    setModalOpen(false);
-    
+    setModalOpen(false)
   }
 
   return (
