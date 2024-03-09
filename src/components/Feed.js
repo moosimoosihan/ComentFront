@@ -4,6 +4,11 @@ import style from '../styles/Feed.module.css';
 import { PropTypes } from 'prop-types';
 
 function Feed(props) {
+    Feed.propTypes = {
+        username: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+    }
     return <>
         <div className={style.feed_container}>
             <div className={style.feed}>
