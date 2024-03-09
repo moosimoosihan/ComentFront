@@ -1,0 +1,151 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .modal button {
+    outline: none;
+    cursor: pointer;
+    border: 0;
+  }
+  .modal > section {
+    width: 90%;
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
+    animation: modal-show 0.3s;
+    overflow: hidden;
+  }
+  .modal > section > header {
+    position: relative;
+    padding: 26px 64px 16px 16px;
+    background-color: #ffffff;
+    font-weight: 700;
+  }
+  .modal > section > header button {
+    position: absolute;
+    top: 21px;
+    right: 27px;
+    width: 0px;
+    font-size: 27px;
+    font-weight: 700;
+    text-align: center;
+    color: #000000;
+    background-color: transparent;
+  }
+  .modal > section > main {
+    padding: 30px;
+    border-top: 1px solid hwb(0 77% 23%);
+  }
+  .modal > section > footer {
+    padding: 15px 16px;
+    border-top: 1px solid hwb(0 77% 23%);
+    text-align: center;
+  }
+  .modal > section > footer button {
+    padding: 6px 12px;
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid #000000;
+  }
+  .modal.openModal {
+    display: flex;
+    align-items: center;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
+    animation: modal-bg-show 0.3s;
+  }
+  .mainLogo{
+    width: 135px;
+    margin: 0 auto;
+    display: block;
+    margin-right: 90px;
+    margin-bottom: 3px;
+  }
+  .modalStrong {
+    color: rgb(42, 82, 193);
+    cursor: pointer;
+  }
+ .login-info {
+    margin-bottom: 30px;
+  }
+ .Login {
+  color: #26479E;
+  cursor: pointer;
+  }
+  .Signup {
+  color: #b52b2b;
+  cursor: pointer;
+  }
+  .modalButton {
+    font-style:initial;
+    font-size: large;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .socialBox {
+    text-align: center;
+    /* background-color: #fff; */
+  }
+  .social {
+    display: flex;
+    align-items: center;
+    border: 1px solid #575757;
+    padding: 9px 20px; /* 내부 여백 설정 */
+    border-radius: 10px; 
+    margin-top: 8px;
+  }
+  .socialLogo {
+    width: 35px; /* 로고 이미지의 너비 */
+    margin-right: 72px; 
+  }
+  .kakaoText {
+    font-size: 17px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .naverText {
+    font-size: 17px;
+    margin-left: 12px;
+    cursor: pointer;
+  }
+  .googleText {
+    font-size: 17px;
+    margin-left: 18px;
+    cursor: pointer;
+  }
+  .signup-coment {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .socialButton {
+    text-align: center;
+  }
+  @keyframes modal-show {
+    from {
+      opacity: 0;
+      margin-top: -50px;
+    }
+    to {
+      opacity: 1;
+      margin-top: 0;
+    }
+  }
+  @keyframes modal-bg-show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
