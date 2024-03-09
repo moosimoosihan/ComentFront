@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import Header from '../components/Header';
 import SideBar from '../components/SideBar';
-import Feed from '../components/Feed';
+import FeedList from '../components/FeedList';
 
 function MainPage() {
     const keyword = useParams();
@@ -11,8 +11,8 @@ function MainPage() {
     return <div>
         <Header />
         <SideBar />
-        <Feed />
-    </div>;
+        <FeedList />
+        </div>;
 }
 
 export default MainPage;

@@ -1,10 +1,54 @@
-  .card {
+.feed_container {
+  max-width: 800px;
+  min-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgb(228, 228, 228);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.feed {
     background-color: white;
     box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
       0 0px 0 1px rgba(10, 10, 10, 0.02);
     color: #4a4a4a;
-    max-width: 100%;
     position: relative;
     padding: 4px 11px !important;
     margin-top: -16px !important;
-  }  
+    border-radius: 10px;
+  }
+.username {
+  font-size:15px;
+}
+.title {
+  font-size: 30px;
+}
+.content {
+  font-size: 20px;
+  line-height: 25px;
+  word-break: break-all;
+}
+.like_box {
+  width: 100px;
+  height: 40px;
+}
+.up {
+  width: 30px;
+  height: 40px;
+  float: left;
+}
+.like_count {
+  margin: 0 5px;
+  float: left;
+  line-height: 40px;
+}
+.down {
+  width: 30px;
+  height: 40px;
+  float: left;
+}
+.comment {
+  width: 80px;
+  height: 40px;
+  float: left;
+}
