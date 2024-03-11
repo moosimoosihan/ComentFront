@@ -1,15 +1,21 @@
-// TODO : 헤더 구현
-//import React from "react"; 설정 다 끝나고나니까 이 문구가 필요가 없다네요(성주)
+import React, { useState } from "react"
 import logoImg from './logoImg.png';
 import { CiSearch } from "react-icons/ci";
 import styles from "../styles/header.module.css";
-
-
+import Modal from "../components/Modal"
+import "../styles/modal.css";
 
 function Header() {
 
- 
+  const [modalOpen, setModalOpen] = useState(false)
 
+  const openModal = () => {
+    setModalOpen(true)
+  }
+  const closeModal = () => {
+    setModalOpen(false);
+    
+  }
 
   return (
     <div className={styles.container}>
@@ -30,7 +36,9 @@ function Header() {
       </div>     
       <div className={styles.logBox}>
         <div className={styles.logIn}>
-          <a className={styles.logTxt}>Log In</a>
+          <a className={styles.logTxt} onClick={openModal}>Log In</a>
+          <Modal open={modalOpen} close={closeModal}>
+          </Modal>
         </div>
         <div className={styles.signUp}>
           <a className={styles.logTxt}>Sign Up</a>
