@@ -46,7 +46,7 @@ const Modal = (props) => {
 
   const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`
     const handleKakaoLogin = ()=>{
-        window.location.href = kakaoURL
+        window.location.href = 'http://localhost:8000/login/kakao-login-page';
     }
 
 
