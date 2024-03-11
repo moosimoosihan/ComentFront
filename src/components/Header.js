@@ -25,10 +25,9 @@ function Header() {
         console.log(showNavigation);
     };
 
-
   return (
     <>
-      <SideBar show={showNavigation} />
+      {showNavigation && <SideBar />}
       <div className={styles.container}>
         <div className={styles.menuShow}>
             <CiMenuBurger size="30" color="black" onClick={toggleNavigation} />
