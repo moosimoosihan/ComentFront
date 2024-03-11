@@ -31,7 +31,6 @@ function MyPage() {
                 <input className={styles.setname} type="text" value={nameValue} onChange={(e) => setNameValue(e.target.value)} placeholder="profile information" />
                 </div>
             </div>
-            
             <div className={styles.myclass}>
                 <h2>user nickname(optional)</h2>
                 <p className={styles.graytext}>set your nickname</p>

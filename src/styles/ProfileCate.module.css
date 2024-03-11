@@ -1,23 +1,30 @@
-
-.button:hover::after {
-    width: 90%; /* hover 시 선이 쭉 늘어남 */
-}
-.button{
-background-color: #ffffff; 
-border: none;
-color: rgb(0, 0, 0);
-padding: 30px 50px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: large;
-margin: 0;
-}
-
-.button:hover {
-transform: scale(1.1); /* 마우스를 올렸을 때 버튼의 크기를 늘립니다. */
-background-color: #d5d5d5; /* Green */
-box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-border-radius: 5%;
-}
-
+.header {
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    display: block;
+    margin: 0 auto;
+    width: 1020px;
+  }  
+  .button {
+    background-color: #ffffff;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 30px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: large;
+  }
+  
+  .button:hover {
+    transform: scale(1.1);
+    background-color: #d5d5d5;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5%;
+  }
+  
+  .button:hover::after {
+    width: 90%;
+  }
+  

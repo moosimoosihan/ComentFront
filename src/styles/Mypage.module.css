@@ -1,17 +1,20 @@
 /* Mypage.module.css */
 /* 내 정보입력창*/
 .myclass {
-    margin: 20px;
-    width: 50%; /* 변경된 부분: 가로 크기를 50%로 설정 */ 
+    margin: 0;
+    width: 90%; /* 변경된 부분: 가로 크기를 50%로 설정 */ 
     float: left; /* 변경된 부분: 왼쪽 마진을 10px로 설정 */
+    justify-content: center;
+    align-items: center;
 }
 /*내 사진 설정*/
 .mypoto {
     margin: 20px;
-    width: 50%;
-    float:left;
+    width: 90%;
+    float: left;
     display: flex; /* 부모인 .mypoto를 flex 컨테이너로 만듭니다. */
     justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center;
 }
 .innerbox{
     width: 150px;
