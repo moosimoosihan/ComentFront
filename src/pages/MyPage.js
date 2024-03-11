@@ -1,12 +1,26 @@
-// TODO : 마이페이지
-import React from 'react';
-import { useParams } from 'react-router-dom';
+//Import useState
+import React, { useState } from "react";
+import Button from "../styles/ProfileCate.module.css";
+import Profile from "./ProfileInfo";
+export default function MyPage() {
+    const [showCategory, setShowCategory] = useState(false);
 
-function MyPage() {
-    const { user_no } = useParams();
-    return <div>
-        <h1>유저넘버가 {user_no}인 마이 페이지</h1>
-    </div>;
+    const handleProfileClick = () => {
+      setShowCategory(true);
+    };
+  
+
+  return (
+      <div>
+        <button name="profile" className={Button.button} onClick={handleProfileClick}>
+          profile
+        </button>
+        <button name="post" className={Button.button}>post</button>
+        <button name="community" className={Button.button}>community</button>
+        <button name="comment" className={Button.button}>comment</button>
+        <button name="follow" className={Button.button}>follow</button>
+        <button name="setting" className={Button.button}>setting</button>
+        {showCategory && <Profile />}
+      </div>
+  );
 }
-
-export default MyPage;
