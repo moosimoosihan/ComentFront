@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Navigation } from 'react-minimal-side-navigation';
 import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
 import styled from '../styles/SideBar.module.css';
@@ -10,24 +9,14 @@ import { MdOutlineSportsBaseball, MdStarBorder } from 'react-icons/md';
 import { GoGraph, GoArrowUpRight } from "react-icons/go";
 import { SiBlockchaindotcom } from "react-icons/si";
 import { PiTelevision } from "react-icons/pi";
-import { CiMenuBurger } from "react-icons/ci";
 import { IoHomeOutline } from "react-icons/io5";
-function SideBar() {
-    const [showNavigation, setShowNavigation] = useState(true);
 
-    const toggleNavigation = () => {
-        setShowNavigation(!showNavigation);
-    };
-
+const SideBar = (show) => {
     const navigate = useNavigate();
-
     return (
         <>
-            <div className={styled.menuShow}>
-                <CiMenuBurger size="30" color="black" onClick={toggleNavigation} />
-            </div>
             <div className={styled.sideBar}>
-                {showNavigation && (
+                {show && (
                     <Navigation
                         onSelect={({ itemId }) => {
                             if(itemId !== ''){
