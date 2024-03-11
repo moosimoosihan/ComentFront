@@ -1,4 +1,81 @@
 .logoImg {
     width: 200px;
     height: 120px;
+}.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logBox {
+    margin-left: 30px;
+}
+
+.logoImg {
+    width: 200px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.searchBox {
+    height: 30px;
+    width: 550px;
+    background: white;
+    border-radius: 40px;
+    padding: 10px;
+    border: 1px solid #c0c0c0;
+    margin-top: 30px;
+}
+
+.searchTxt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0px;
+    color: #c0c0c0;
+    font-size: 16px;
+    line-height: 30px;
+    width: 490px;
+    text-align: center;
+    margin-left: 15px;
+}
+
+.searchTxt::placeholder {
+    color: #c0c0c0;
+}
+
+.searchBtn {
+    float: right;
+    width: 40px;
+    height: 100%;
+    border-radius: 50px;
+    background: white;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logBox {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 60px;
+    margin-left: 30px;
+    margin-top: 45px;
+    width: 150px;
+}
+
+.logIn {
+    width: 60px;
+}
+
+.signUp {
+    width: 60px;
+}
+
+.logTxt {
+    cursor: pointer;
+    color: #c0c0c0;
 }
