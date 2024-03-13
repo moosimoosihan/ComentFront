@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import Switch from 'react-switch'; //npm install react-switch 설치해주세요//
 import styles from '../styles/Mypage.module.css';
 
