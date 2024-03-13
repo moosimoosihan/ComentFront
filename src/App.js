@@ -15,15 +15,18 @@ function App() {
   // 쿠키에 저장된 토큰이 있는지 확인
   const cookies = new Cookies();
   const jwtToken = cookies.get('jwt');
-  let user = null;
+  let userInfo = null;
   useEffect(() => {
     if(jwtToken) {
-      user = axios.post('http://localhost:8000/login/userInfo',{
+      axios.post('http://localhost:8000/login/userInfo',{
         token: jwtToken
       }).then((res) => {
-        return res.data;
+        userInfo = {
+          email: res.data.email,
+          nickname: res.data.nickname,
+        };
+        console.log(userInfo);
       });
-      console.log(user);
     } else {
         console.log('토큰이 없습니다.');
     }
