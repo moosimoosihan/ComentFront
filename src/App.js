@@ -8,12 +8,26 @@ import UploadFeedPage from './pages/UploadFeedPage';
 import MyPage from './pages/MyPage';
 import LoginPage from './pages/LoginPage';
 import { Cookies } from "react-cookie";
+import axios from "axios";
+import { useEffect } from "react";
 
 function App() {
   // 쿠키에 저장된 토큰이 있는지 확인
   const cookies = new Cookies();
   const jwtToken = cookies.get('jwt');
-  console.log(jwtToken);
+  let user = null;
+  useEffect(() => {
+    if(jwtToken) {
+      user = axios.post('http://localhost:8000/login/userInfo',{
+        token: jwtToken
+      }).then((res) => {
+        return res.data;
+      });
+      console.log(user);
+    } else {
+        console.log('토큰이 없습니다.');
+    }
+  }, []);
   
   return <Router>
     <Routes>
