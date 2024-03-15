@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import MainPage from './pages/MainPage';
 import UploadFeedPage from './pages/UploadFeedPage';
-import MyPage from './pages/MyPage';
+import MyPage from './pages/MyPage/MyPage';
 import LoginPage from './pages/LoginPage';
 
 function App() {

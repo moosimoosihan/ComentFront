@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -10,6 +13,7 @@
     "prettier": "^3.2.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
+    "react-activity-feed": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-minimal-side-navigation": "^1.9.2",
@@ -23,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint":  "eslint ./src",
+    "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "format": "prettier --check ./src",
     "format:fix": "prettier --write ./src"
