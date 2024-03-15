@@ -22,6 +22,7 @@ function App() {
         token: jwtToken
       }).then((res) => {
         userInfo = {
+          _id: res.data._id,
           email: res.data.email,
           nickname: res.data.nickname,
           socialType: res.data.socialType,

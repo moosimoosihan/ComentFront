@@ -5,11 +5,12 @@ function UploadFeedPage() {
     const gotoHome = () => {
         window.location.href = '/';
     }
+    const a = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
     if(isLoggedIn){
         return (
             <div>
                 <form method='post' action='http://localhost:8000/feed' >
-                    <input type="hidden" name="user_id" value="1" />
+                    <input type="hidden" name="user_id" value={a._id} />
                     <input type="text" name="title" />
                     <select name="category">
                         <option value="Gamming">Gamming</option>
