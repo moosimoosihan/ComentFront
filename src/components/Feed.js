@@ -5,14 +5,16 @@ import { PropTypes } from 'prop-types';
 
 function Feed(props) {
     Feed.propTypes = {
-        username: PropTypes.string.isRequired,
+        nickname: PropTypes.string.isRequired,
         content: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
     }
+    console.log(props);
+
     return <>
         <div className={style.feed_container}>
             <div className={style.feed}>
-                <p className={style.username}>{props.username} ㆍ 1days ago</p>
+                <p className={style.username}>{props.nickname} ㆍ 1days ago</p>
                 <h1 className={style.title}>{props.title}</h1>
                 <p className={style.content}>{props.content}</p>
                 <div className={style.like_box}>

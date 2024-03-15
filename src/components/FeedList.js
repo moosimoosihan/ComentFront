@@ -17,7 +17,7 @@ function FeedList() {
     return (
         <>
             {feeds.map((feed) => (
-                <Feed key={feed._id} username={feed.username} content={feed.content} title={feed.title} />
+                <Feed key={feed._id} nickname={feed.user_id.nickname} content={feed.content} title={feed.title} />
             ))}
         </>
     );

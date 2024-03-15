@@ -5,11 +5,23 @@ function UploadFeedPage() {
     const gotoHome = () => {
         window.location.href = '/';
     }
+    function submitFeed(e) {
+        if(document.querySelector('input[name="title"]').value === ''){
+            alert('제목을 입력해주세요.');
+            e.preventDefault();
+            return;
+        }
+        if(document.querySelector('input[name="content"]').value === ''){
+            alert('내용을 입력해주세요.');
+            e.preventDefault();
+            return;
+        }
+    }
     const a = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
     if(isLoggedIn){
         return (
             <div>
-                <form method='post' action='http://localhost:8000/feed' >
+                <form method='post' action='http://localhost:8000/feed' onSubmit={submitFeed} >
                     <input type="hidden" name="user_id" value={a._id} />
                     <input type="text" name="title" />
                     <select name="category">
