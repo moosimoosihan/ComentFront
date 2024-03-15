@@ -39,32 +39,32 @@ const SideBar = () => {
                             subNav: [
                                 {
                                     title: 'Gaming',
-                                    itemId: '/Gaming',
+                                    itemId: '/category/Gaming',
                                     elemBefore: () => <FaGamepad size="27" color="black" />,
                                 },
                                 {
                                     title: 'Sports',
-                                    itemId: '/Sports',
+                                    itemId: '/category/Sports',
                                     elemBefore: () => <MdOutlineSportsBaseball size="27" color="black" />,
                                 },
                                 {
                                     title: 'Business',
-                                    itemId: '/Business',
+                                    itemId: '/category/Business',
                                     elemBefore: () => <GoGraph size="27" color="black" />,
                                 },
                                 {
                                     title: 'Crypto',
-                                    itemId: '/Crypto',
+                                    itemId: '/category/Crypto',
                                     elemBefore: () => <SiBlockchaindotcom size="27" color="black" />,
                                 },
                                 {
                                     title: 'Television',
-                                    itemId: '/Television',
+                                    itemId: '/category/Television',
                                     elemBefore: () => <PiTelevision size="27" color="black" />,
                                 },
                                 {
                                     title: 'Celebrity',
-                                    itemId: '/Celebrity',
+                                    itemId: '/category/Celebrity',
                                     elemBefore: () => <MdStarBorder size="27" color="black" />,
                                 },
                             ],

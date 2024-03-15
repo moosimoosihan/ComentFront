@@ -9,7 +9,6 @@ function Feed(props) {
         content: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
     }
-    console.log(props);
 
     return <>
         <div className={style.feed_container}>
@@ -26,11 +25,6 @@ function Feed(props) {
             </div>
         </div>
     </>;
-}
-
-Feed.propTypes = {
-    username: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
 }
 
 export default Feed;

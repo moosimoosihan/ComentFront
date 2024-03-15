@@ -1,18 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import Feed from './Feed';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
-function FeedList() {
+function FeedList(props) {
+    FeedList.propTypes ={
+        category: PropTypes.string,
+    }
     const [feeds, setFeeds] = useState([]);
-
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await axios.get('http://localhost:8000/feed');
-            setFeeds(response.data);
-        };
-
-        fetchData();
-    }, []);
+        if(props.category){
+            const fetchData = async () => {
+                const response = await axios.get(`http://localhost:8000/feed/category/${props.category}`);
+                setFeeds(response.data);
+            };
+            fetchData();
+        }
+    }, [props.category]);
+    useEffect(() => {
+        if(!props.category){
+            const fetchData = async () => {
+                const response = await axios.get('http://localhost:8000/feed');
+                setFeeds(response.data);
+            };
+            fetchData();
+        }
+    }, [props.category]);
 
     return (
         <>

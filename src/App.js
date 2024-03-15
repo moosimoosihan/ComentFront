@@ -44,7 +44,7 @@ function App() {
   return <Router>
     <Routes>
       <Route path="/" element={<MainPage />} />
-      <Route path="/:keyword" element={<MainPage />} />
+      <Route path="/category/:category" element={<MainPage />} />
       <Route path="/uploadFeed" element={<UploadFeedPage />} />
       <Route path="/myPage/:user_no" element={<MyPage />} />
       <Route path="/login" element={<LoginPage />} />

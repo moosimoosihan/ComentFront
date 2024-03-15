@@ -25,7 +25,7 @@ function UploadFeedPage() {
                     <input type="hidden" name="user_id" value={a._id} />
                     <input type="text" name="title" />
                     <select name="category">
-                        <option value="Gamming">Gamming</option>
+                        <option value="Gaming">Gaming</option>
                         <option value="Sports">Sports</option>
                         <option value="Business">Business</option>
                         <option value="Crypto">Crypto</option>
