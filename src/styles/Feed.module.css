@@ -53,8 +53,6 @@ button {
   width: 100px;
   height: 40px;
   float: left;
-  background-color: rgb(128, 128, 128, 0.2);
-  border-radius: 50px;
 }
 .up {
   width: 30px;

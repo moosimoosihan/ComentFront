@@ -51,7 +51,7 @@ function Feed(props) {
                 <p className={style.content}>{props.content}</p>
                 <div className={style.other_container}>
                     <div className={style.like_box}>
-                        <Like feed_id={props.feed_id} />
+                        <Like key={props.feed_id} feed_id={props.feed_id} isLoggedIn={isLoggedIn} />
                     </div>
                     <button className={style.comment}><FaRegCommentAlt />1.4k</button>
                     {user && user._id === props.user_id ? (

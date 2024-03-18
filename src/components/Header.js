@@ -40,11 +40,11 @@ function Header() {
         <div className="searchBar">
           <form className={styles.searchBox}>
             <input className={styles.searchTxt} type="text" placeholder="ComenT에서 검색하기"/>
-            <botton className={styles.searchBtn} type='submit' >
+            <button className={styles.searchBtn} type='submit' >
             <CiSearch size="22" color="#c0c0c0" /> { // 아이콘 
             }
 
-            </botton>
+            </button>
           </form>
         </div>     
         <div className={styles.logBox}>
