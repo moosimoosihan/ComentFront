@@ -2,9 +2,10 @@ import style from '../styles/Feed.module.css';
 import { PropTypes } from 'prop-types';
 import useAuth from "../Auth";
 import axios from 'axios';
-import { BiLike, BiDislike, BiEdit } from "react-icons/bi";
+import { BiEdit } from "react-icons/bi";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
+import Like from './Like';
 
 function Feed(props) {
     Feed.propTypes = {
@@ -39,6 +40,7 @@ function Feed(props) {
     function editFeed(){
         window.location.href = `/editFeed/${props.feed_id}`;
     }
+    
 
     return (<>
         <div className={style.feed_container}>
@@ -49,9 +51,7 @@ function Feed(props) {
                 <p className={style.content}>{props.content}</p>
                 <div className={style.other_container}>
                     <div className={style.like_box}>
-                        <button className={style.up}><BiLike /></button>
-                        <p className={style.like_count}>2.5k</p>
-                        <button className={style.down}><BiDislike /></button>
+                        <Like feed_id={props.feed_id} />
                     </div>
                     <button className={style.comment}><FaRegCommentAlt />1.4k</button>
                     {user && user._id === props.user_id ? (

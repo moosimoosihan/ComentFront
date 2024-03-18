@@ -15,10 +15,7 @@ function FeedList(props) {
                 setFeeds(response.data);
             };
             fetchData();
-        }
-    }, [props.category]);
-    useEffect(() => {
-        if(!props.category){
+        } else {
             const fetchData = async () => {
                 const response = await axios.get('http://localhost:8000/feed');
                 setFeeds(response.data);
@@ -26,7 +23,6 @@ function FeedList(props) {
             fetchData();
         }
     }, [props.category]);
-
     return (
         <>
             {feeds.map((feed) => (
