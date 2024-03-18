@@ -53,7 +53,7 @@ function Feed(props) {
                     <div className={style.like_box}>
                         <Like feed_id={props.feed_id} />
                     </div>
-                    <button className={style.comment}><FaRegCommentAlt />1.4k</button>
+                    <a className={style.comment}><FaRegCommentAlt />1.4k</a>
                     {user && user._id === props.user_id ? (
                         <div className={style.deledit}>
                             <button className={style.delete} onClick={deleteFeed}><MdDeleteForever /></button>

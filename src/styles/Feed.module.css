@@ -53,8 +53,6 @@ button {
   width: 100px;
   height: 40px;
   float: left;
-  background-color: rgb(128, 128, 128, 0.2);
-  border-radius: 50px;
 }
 .up {
   width: 30px;
@@ -76,12 +74,13 @@ button {
   height: 40px;
   float: left;
   margin-left: 30px;
-  background-color: rgb(128, 128, 128, 0.2);
-  border-radius: 50px;
+  border: solid 2px rgba(163, 163, 163, 0.2);
+  border-radius: 5px;
   padding: 0 10px;
   line-height: 40px;
 }
 .comment svg {
+  margin-left: 10px;
   margin-right: 10px;
 }
 svg {
@@ -96,8 +95,8 @@ p:hover {
 .deledit {
   width: 80px;
   height: 40px;
-  background-color: rgb(128, 128, 128, 0.2);
-  border-radius: 50px;
+  border: solid 2px rgba(163, 163, 163, 0.2);
+  border-radius: 5px;
   float: right;
   font-size: 20px;
   line-height: 50px;
