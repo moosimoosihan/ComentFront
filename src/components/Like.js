@@ -1,60 +1,87 @@
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
-import useAuth from "../Auth";
 import '../styles/Like.css';
 import PropTypes from 'prop-types';
 
 function Like(props) {
     Like.propTypes = {
         feed_id: PropTypes.string.isRequired,
+        isLoggedIn: PropTypes.bool.isRequired
     }
-    const isLoggedIn = useAuth();
-    console.log(isLoggedIn);
     let user = null;
-    if (isLoggedIn) {
+    if(props.isLoggedIn){
         user = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
     }
     const [like, setLike] = useState(false);
-    const isLiked = async () => {
-        const response = await axios.get(`http://localhost:8000/feed/like/${props.feed_id}/${user._id}`);
-        console.log(user);
-        if (response.data) {
-            setLike(true);
-        } else {
-            setLike(false);
-        }
-    }
+    const [likeCount, setLikeCount] = useState(0);
+    
     const pawButton = useRef(null);
+    async function likeCountFecth(){
+        const response = await axios.get(`http://localhost:8000/feed/like/${props.feed_id}`);
+        setLikeCount(response.data);
+    }
     useEffect(() => {
-        if (isLoggedIn) {
+        likeCountFecth();
+        if (props.isLoggedIn) {
             isLiked();
-        }
-        if (pawButton.current) {
-            pawButton.current.addEventListener('click', e => {
-                let number = pawButton.current.children[1].textContent;
-                if (!pawButton.current.classList.contains('animation')) {
-                    pawButton.current.classList.add('animation');
-                    for (let i = 0; i < confettiAmount; i++) {
-                        createConfetti(pawButton.current);
+            if (pawButton.current) {
+                pawButton.current.addEventListener('click', e => {
+                    let number = pawButton.current.children[1].textContent;
+                    if (!pawButton.current.classList.contains('animation')) {
+                        pawButton.current.classList.add('animation');
+                        for (let i = 0; i < confettiAmount; i++) {
+                            createConfetti(pawButton.current);
+                        }
+                        setTimeout(() => {
+                            pawButton.current.classList.add('confetti');
+                            setTimeout(() => {
+                                pawButton.current.classList.add('liked');
+                                pawButton.current.children[1].textContent = parseInt(number) + 1;
+                            }, 400);
+                            setTimeout(() => {
+                                pawButton.current.querySelectorAll('i').forEach(i => i.remove());
+                            }, 600);
+                        }, 260);
+                    } else {
+                        pawButton.current.classList.remove('animation', 'liked', 'confetti');
+                        pawButton.current.children[1].textContent = parseInt(number) - 1;
                     }
-                    setTimeout(() => {
-                        pawButton.current.classList.add('confetti');
-                        setTimeout(() => {
-                            pawButton.current.classList.add('liked');
-                            pawButton.current.children[1].textContent = parseInt(number) + 1;
-                        }, 400);
-                        setTimeout(() => {
-                            pawButton.current.querySelectorAll('i').forEach(i => i.remove());
-                        }, 600);
-                    }, 260);
-                } else {
-                    pawButton.current.classList.remove('animation', 'liked', 'confetti');
-                    pawButton.current.children[1].textContent = parseInt(number) - 1;
-                }
+                    e.preventDefault();
+                });
+            }
+        } else {
+            if(pawButton.current.classList.contains('liked')){
+                pawButton.current.classList.remove('animation', 'liked', 'confetti');
+            }
+            pawButton.current.addEventListener('click', e => {
+                alert('로그인이 필요한 서비스입니다.');
                 e.preventDefault();
             });
         }
-    }, [])
+    }, []);
+
+    function likeFeed() {
+        if(like){
+            axios.post(`http://localhost:8000/feed/unlike/${props.feed_id}/${user._id}`);
+            setLike(false);
+        } else {
+            axios.post(`http://localhost:8000/feed/like/${props.feed_id}/${user._id}`);
+            setLike(true);
+        }
+    }
+
+    const isLiked = async () => {
+        const response = await axios.get(`http://localhost:8000/feed/like/${props.feed_id}/${user._id}`);
+        if (response.data) {
+            pawButton.current.classList.add('animation', 'liked', 'confetti');
+            setLike(true);
+        } else {
+            if(pawButton.current.classList.contains('liked')){
+                pawButton.current.classList.remove('animation', 'liked', 'confetti');
+            }
+            setLike(false);
+        }
+    }
 
 
     let confettiAmount = 60,
@@ -81,14 +108,14 @@ function Like(props) {
 
     return (
             <>
-                <a ref={pawButton} className='paw_button'>
+                <a onClick={likeFeed} ref={pawButton} className='paw_button'>
                     <div className='text'>
                         <svg>
                             <use xlinkHref="#heart"/>
                         </svg>
                         <span>Like</span>
                     </div>
-                    <span>12</span>
+                    <span>{likeCount}</span>
                     <div className='paws'>
                         <svg className='paw'>
                             <use xlinkHref="#paw"/>
