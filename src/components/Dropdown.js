@@ -22,6 +22,14 @@ function Dropdown() {
     window.location.reload();
   };
 
+  let user = null;
+  if (isLoggedIn) {
+    user = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
+  }
+  const goMypage = () => {
+    navigate(`/mypage/${user._id}`);
+  }
+
 
     return (
       <>
@@ -33,7 +41,7 @@ function Dropdown() {
           </li>
           <li>
             <div className={styles.mypageDiv}>
-              <a className={styles.mypage}>마이페이지</a>
+              <a className={styles.mypage} onClick={goMypage}>마이페이지</a>
             </div>
           </li>
         </div>

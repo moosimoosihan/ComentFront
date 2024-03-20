@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState,useEffect } from "react"
 import logoImg from './logoImg.png';
 import { CiSearch } from "react-icons/ci";
 import styles from "../styles/header.module.css";
@@ -8,10 +8,13 @@ import { CiMenuBurger } from "react-icons/ci";
 import { CiSquarePlus } from "react-icons/ci";
 import SideBar from "./SideBar";
 import Dropdown from "./Dropdown";
-
+import axios from "axios";
+import { Cookies } from "react-cookie";
+import { useNavigate } from 'react-router-dom';
 
 //로그인정보 관련
 import useAuth from "../Auth";
+import { func } from "prop-types";
 
 function Header() {
 
@@ -34,11 +37,35 @@ function Header() {
 
   //로그인 정보 
   const isLoggedIn = useAuth();
-  
-  //회원 정보는 info. 으로 가져올것임 
-  const info = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
+  const cookies = new Cookies();
+  const jwtToken = cookies.get('jwt');
+  //회원 정보는 info. 으로 가져올것임
+  let [info,setInfo] = useState(JSON.parse(sessionStorage.getItem('userinfo') || '{}'));
+  useEffect(() => {
+    if(isLoggedIn){
+      fetchUserInfo();
+    }
+  },[isLoggedIn]);
+
+  async function fetchUserInfo() {
+    const response = await axios.post('http://localhost:8000/login/userInfo',{
+      token: jwtToken
+    });
+    setInfo(response.data);
+  }
   
   const [view, setView] = useState(false);
+
+  // 검색
+  const navigate = useNavigate();
+  const [keyword, setKeyword] = useState('');
+  function search() {
+    if(keyword === ''){
+      return;
+    }
+    navigate(`/search/${keyword}`);
+  }
+
 
   return (
     <React.Fragment>
@@ -55,14 +82,12 @@ function Header() {
             ><img className={styles.logoImg} src={logoImg} /></a>
           </div> 
           <div className="searchBar">
-            <form className={styles.searchBox}>
-              <input className={styles.searchTxt} type="text" placeholder="ComenT에서 검색하기"/>
-              <button className={styles.searchBtn} type='submit' >
-              <CiSearch size="22" color="#c0c0c0" /> { // 아이콘 
-              }
-
+            <div className={styles.searchBox}>
+              <input className={styles.searchTxt} type="text" placeholder="ComenT에서 검색하기" onChange={(e) => setKeyword(e.target.value)} />
+              <button className={styles.searchBtn} onClick={search} >
+              <CiSearch size="22" color="#c0c0c0" />
               </button>
-            </form>
+            </div>
           </div>     
           {isLoggedIn?(<div className={styles.profileBox}>
             <div className={styles.uploadDiv}>
