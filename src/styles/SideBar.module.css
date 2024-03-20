@@ -7,3 +7,13 @@
     padding: 20px;
     padding-top: 50px;
 }
+@media screen and (min-width: 1400px) {
+    .sideBar {
+        display: block;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .sideBar {
+        display: none;
+    }
+}
