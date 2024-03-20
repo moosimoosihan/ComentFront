@@ -49,6 +49,10 @@ const Modal = (props) => {
         window.location.href = 'http://localhost:8000/login/kakao-login-page';
     }
 
+    const handleGoogleLogin = ()=> {
+      window.location.href = 'http://localhost:8000/login/google-login-page'
+    }
+
 
   return (
     <div className={open ? "openModal modal" : "modal"} onClick={closeModal}>
@@ -109,7 +113,7 @@ const Modal = (props) => {
                       <span className="naverText">네이버로 시작하기</span>
                     </div>
                   </div>
-                  <div className="social">
+                  <div className="social" onClick={handleGoogleLogin}>
                     <img className="socialLogo" src="/google.png" alt="google logo" />
                     <span className="googleText">구글로 시작하기</span>
                   </div>
