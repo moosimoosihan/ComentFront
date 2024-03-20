@@ -7,16 +7,33 @@
   margin-bottom: 20px;
 }
 
+button {
+  background: none;
+  border: none;
+}
+.profile {
+  background-color: aqua;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  float: left;
+  margin-right: 10px;
+  margin-top:5px;
+}
 .feed {
-    background-color: white;
-    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
-      0 0px 0 1px rgba(10, 10, 10, 0.02);
     color: #4a4a4a;
     position: relative;
     padding: 4px 11px !important;
     margin-top: -16px !important;
     border-radius: 10px;
-  }
+}
+.feed:hover {
+  background-color: white;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+    0 0px 0 1px rgba(10, 10, 10, 0.02);
+  cursor: pointer;
+  transition: 0.4s;
+}
 .username {
   font-size:15px;
 }
@@ -28,9 +45,14 @@
   line-height: 25px;
   word-break: break-all;
 }
+.other_container {
+  width: 100%;
+  height: 50px;
+}
 .like_box {
   width: 100px;
   height: 40px;
+  float: left;
 }
 .up {
   width: 30px;
@@ -51,4 +73,34 @@
   width: 80px;
   height: 40px;
   float: left;
+  margin-left: 30px;
+  border: solid 2px rgba(163, 163, 163, 0.2);
+  border-radius: 5px;
+  padding: 0 10px;
+  line-height: 40px;
+}
+.comment svg {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+svg {
+  font-size: 20px;
+}
+svg:hover {
+  cursor: pointer;
+}
+p:hover {
+  cursor: text;
+}
+.deledit {
+  width: 80px;
+  height: 40px;
+  border: solid 2px rgba(163, 163, 163, 0.2);
+  border-radius: 5px;
+  float: right;
+  font-size: 20px;
+  line-height: 50px;
+}
+.deledit svg {
+  font-size: 25px;
 }

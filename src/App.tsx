@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import UploadFeedPage from "./pages/UploadFeedPage";
-import MyPage from "./pages/MyPage";
+import MyPage from "./pages/MyPage/MyPage";
 import LoginPage from "./pages/LoginPage";
 // import { Cookies } from "react-cookie";
 // import axios from "axios";
