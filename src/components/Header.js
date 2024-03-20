@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState,useEffect } from "react"
 import logoImg from './logoImg.png';
 import { CiSearch } from "react-icons/ci";
 import styles from "../styles/header.module.css";
@@ -8,7 +8,8 @@ import { CiMenuBurger } from "react-icons/ci";
 import { CiSquarePlus } from "react-icons/ci";
 import SideBar from "./SideBar";
 import Dropdown from "./Dropdown";
-
+import axios from "axios";
+import { Cookies } from "react-cookie";
 
 //로그인정보 관련
 import useAuth from "../Auth";
@@ -34,9 +35,22 @@ function Header() {
 
   //로그인 정보 
   const isLoggedIn = useAuth();
-  
-  //회원 정보는 info. 으로 가져올것임 
-  const info = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
+  const cookies = new Cookies();
+  const jwtToken = cookies.get('jwt');
+  //회원 정보는 info. 으로 가져올것임
+  let [info,setInfo] = useState(JSON.parse(sessionStorage.getItem('userinfo') || '{}'));
+  useEffect(() => {
+    if(isLoggedIn){
+      fetchUserInfo();
+    }
+  },[isLoggedIn]);
+
+  async function fetchUserInfo() {
+    const response = await axios.post('http://localhost:8000/login/userInfo',{
+      token: jwtToken
+    });
+    setInfo(response.data);
+  }
   
   const [view, setView] = useState(false);
 
