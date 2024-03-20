@@ -171,7 +171,7 @@ function Feed(props) {
                         <Like key={props.feed._id} feed_id={props.feed._id} isLoggedIn={props.isLoggedIn} />
                     </div>
                     <a className={style.comment} onClick={commentClick}><FaRegCommentAlt />{countComment}</a>
-                    {!edit && props.user._id === props.feed.user_id._id ? (
+                    {!edit && props.user && props.user._id === props.feed.user_id._id ? (
                         <div className={style.deledit}>
                             <button className={style.delete} onClick={deleteFeed}><MdDeleteForever /></button>
                             <button className={style.edit} onClick={()=>{editFeed(true)}}><BiEdit /></button>
