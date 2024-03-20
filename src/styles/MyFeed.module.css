@@ -1,6 +1,7 @@
 .App {
     font-family: sans-serif;
     text-align: center;
+    border: #4a4a4a;
 }
 
 .raf-comment-field .raf-textarea .raf-textarea__textarea {
