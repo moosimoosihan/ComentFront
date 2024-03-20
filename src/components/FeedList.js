@@ -34,7 +34,7 @@ function FeedList(props) {
     return (
         <>
             {feeds.map((feed) => (
-                <Feed key={feed._id} feed_id={feed._id} nickname={feed.user_id.nickname} content={feed.content} title={feed.title} user_id={feed.user_id._id} />
+                <Feed key={feed._id} feed_id={feed._id} nickname={feed.user_id.nickname} content={feed.content} title={feed.title} user_id={feed.user_id._id} category={feed.category} />
             ))}
         </>
     );
