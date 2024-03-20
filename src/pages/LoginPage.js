@@ -11,7 +11,7 @@ function LoginPage() {
     const [modalOpen, setModalOpen] = useState(false)
     const cookies = new Cookies();
     const navigate = useNavigate();
-    const isLoggedIn = useAuth();
+    const { isLoggedIn } = useAuth();
 
   const openModal = () => {
     setModalOpen(true)

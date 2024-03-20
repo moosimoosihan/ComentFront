@@ -5,6 +5,11 @@
 
 .container {
     display: flex;
+}
+
+.between {
+    width: 100%;
+    display: flex;
     justify-content: space-between;
 }
 
@@ -12,6 +17,7 @@
     width: 200px;
     height: 120px;
     cursor: pointer;
+    margin-left: 20px;
 }
 
 .searchBox {
@@ -62,16 +68,13 @@
     margin-right: 60px;
     margin-left: 30px;
     margin-top: 45px;
-    width: 150px;
+    width: 60px;
 }
 
 .logIn {
     width: 60px;
 }
 
-.signUp {
-    width: 60px;
-}
 
 .logTxt {
     cursor: pointer;
@@ -81,4 +84,88 @@
 .menuShow {
     margin-top: 30px;
     margin-left: 25px;
+}
+
+.profileBox {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 25px;
+    margin-left: 30px;
+    margin-top: 15px;
+    width: 300px;
+}
+
+.uploadDiv {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.nickDiv {
+    width: 20%;
+    display: flex;
+    justify-content: right;
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.profDiv {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.profImg {
+    cursor: pointer;
+}
+
+
+.sideBar {
+    margin-top: 30px;
+    top: 60px;
+    right: 20px;
+    position: fixed;
+    width: 150px;
+    height: 70px;
+    /* display: flex; */
+}
+
+li {
+    list-style: none
+}
+
+.logoutDiv {
+    text-align: center;
+    margin-top: 13px;
+    border-left: solid 2px #ececec;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoutDiv:hover {
+    background-color: #ececec;
+    cursor: pointer;
+    border-left: solid 2px red;
+}
+
+.logout {
+    line-height: 33px;
+}
+
+.mypageDiv {
+    height: 30px;
+    text-align: center;
+    border-left: solid 2px #ececec;
+}
+
+.mypageDiv:hover {
+    background-color: #ececec;
+    cursor: pointer;
+    border-left: solid 2px red;
+}
+
+.mypage {
+    line-height: 33px;
 }
