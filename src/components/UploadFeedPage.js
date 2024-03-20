@@ -1,11 +1,4 @@
-import PropTypes from 'prop-types';
-
-function UploadFeedPage(props) {
-    UploadFeedPage.propTypes = {
-        edit: PropTypes.bool,
-        feed: PropTypes.object,
-    }
-    
+function UploadFeedPage() {
     function submitFeed(e) {
         if(document.querySelector('input[name="title"]').value === ''){
             alert('제목을 입력해주세요.');
