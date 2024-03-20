@@ -10,9 +10,11 @@ import SideBar from "./SideBar";
 import Dropdown from "./Dropdown";
 import axios from "axios";
 import { Cookies } from "react-cookie";
+import { useNavigate } from 'react-router-dom';
 
 //로그인정보 관련
 import useAuth from "../Auth";
+import { func } from "prop-types";
 
 function Header() {
 
@@ -54,6 +56,17 @@ function Header() {
   
   const [view, setView] = useState(false);
 
+  // 검색
+  const navigate = useNavigate();
+  const [keyword, setKeyword] = useState('');
+  function search() {
+    if(keyword === ''){
+      return;
+    }
+    navigate(`/search/${keyword}`);
+  }
+
+
   return (
     <React.Fragment>
     <>
@@ -69,14 +82,12 @@ function Header() {
             ><img className={styles.logoImg} src={logoImg} /></a>
           </div> 
           <div className="searchBar">
-            <form className={styles.searchBox}>
-              <input className={styles.searchTxt} type="text" placeholder="ComenT에서 검색하기"/>
-              <button className={styles.searchBtn} type='submit' >
-              <CiSearch size="22" color="#c0c0c0" /> { // 아이콘 
-              }
-
+            <div className={styles.searchBox}>
+              <input className={styles.searchTxt} type="text" placeholder="ComenT에서 검색하기" onChange={(e) => setKeyword(e.target.value)} />
+              <button className={styles.searchBtn} onClick={search} >
+              <CiSearch size="22" color="#c0c0c0" />
               </button>
-            </form>
+            </div>
           </div>     
           {isLoggedIn?(<div className={styles.profileBox}>
             <div className={styles.uploadDiv}>

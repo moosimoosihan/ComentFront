@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
 import useAuth from "../Auth";
-import axios from 'axios';
+import PropTypes from 'prop-types';
+import { Cookies } from "react-cookie";
 
-function UploadFeedPage() {
+function UploadFeedPage(props) {
+    UploadFeedPage.propTypes = {
+        edit: PropTypes.bool,
+        feed: PropTypes.object,
+    }
     const isLoggedIn = useAuth();
     const gotoHome = () => {
         window.location.href = '/';
@@ -20,38 +24,17 @@ function UploadFeedPage() {
         }
     }
 
-    // 파라미터 값으로 feed_id가 있다면 수정하도록 하고, 없다면 새로운 피드를 업로드하도록 한다.
-    let [edit, setEdit] = useState(false);
-    let [feed, setFeed] = useState(undefined);
-    useEffect(()=>{
-        // 먼저 파라미터 값 여부 확인
-        if(window.location.pathname.split('/').length > 2 && !edit){
-            // 수정
-            try{
-                const feed_id = window.location.pathname.split('/')[2];
-                const fetchData = async()=>{
-                    const response = await axios.get(`http://localhost:8000/feed/${feed_id}`);
-                    setFeed(response.data);
-                };
-                fetchData();
-                setEdit(true);
-            }catch(e){
-                console.log(e);
-            }
-        }
-    }, [])
-
     const a = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
     if(isLoggedIn){
-        return (edit) ? ((feed !== undefined && a._id === feed.user_id._id) ? (
+        return (props.edit) ? ((props.feed !== undefined && a._id === props.feed.user_id._id) ? (
             <div>
-                <form method='post' action={`http://localhost:8000/feed/${feed._id}`} onSubmit={submitFeed} >
+                <form method='post' action={`http://localhost:8000/feed/${props.feed._id}`} onSubmit={submitFeed} >
                     <input type="hidden" name="user_id" value={a._id} />
-                    <input type="text" name="title" value={feed.title} onChange={(e) => setFeed({ ...feed, title: e.target.value })} />
-                    <select name="category" value={feed.category}>
-                        <option value={feed.category}>{feed.category}</option>
+                    <input type="text" name="title" value={props.feed.title} />
+                    <select name="category" value={props.feed.category}>
+                        <option value={props.feed.category}>{props.feed.category}</option>
                     </select>
-                    <input type="textarea" name="content" value={feed.content} onChange={(e) => setFeed({ ...feed, content: e.target.value })} />
+                    <input type="textarea" name="content" value={props.feed.content} />
                     <input type="submit" value="수정하기" />
                 </form>
             </div>
