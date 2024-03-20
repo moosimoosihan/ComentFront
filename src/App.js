@@ -4,7 +4,6 @@ import {
   Route,
 } from "react-router-dom";
 import MainPage from './pages/MainPage';
-import UploadFeedPage from './pages/UploadFeedPage';
 import MyPage from './pages/MyPage/MyPage';
 import LoginPage from './pages/LoginPage';
 import { Cookies } from "react-cookie";
@@ -45,8 +44,7 @@ function App() {
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/category/:category" element={<MainPage />} />
-      <Route path="/uploadFeed" element={<UploadFeedPage />} />
-      <Route path="/editFeed/:feed_id" element={<UploadFeedPage />} />
+      <Route path="/search/:keyword" element={<MainPage />} />
       <Route path="/myPage/:user_no" element={<MyPage />} />
       <Route path="/login" element={<LoginPage />} />
     </Routes>
