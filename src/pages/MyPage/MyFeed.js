@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-// import Styles from "../../styles/MyFeed.module.css";
+import Styles from "../../styles/MyFeed.module.css"; // 필요에 따라 주석 해제
 import axios from "axios";
 import Feed from "../../components/Feed";
 import useAuth from "../../Auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhotoVideo, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { faBloggerB } from "@fortawesome/free-brands-svg-icons";
 
 function MyPage() {
   const isLoggedIn = useAuth();
@@ -12,8 +15,12 @@ function MyPage() {
 
   const fetchData = async () => {
     if (isLoggedIn && user?._id) {
-      const response = await axios.get(`http://localhost:8000/feed/user/${user._id}`);
-      setFeed(response.data);
+      try {
+        const response = await axios.get(`http://localhost:8000/feed/user/${user._id}`);
+        setFeed(response.data);
+      } catch (error) {
+        console.error("피드를 불러오는 데 실패했습니다.", error);
+      }
     }
   };
 
