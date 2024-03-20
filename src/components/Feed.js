@@ -31,8 +31,8 @@ function Feed(props) {
 
         const commentData = {
             comment: comment.comment,
-            user_id: props.user_id,
-            feed_id: props.feed_id,
+            user_id: props.feed.user_id,
+            feed_id: props.feed._id,
         };
 
         if (!isLoggedIn) {
@@ -64,7 +64,7 @@ function Feed(props) {
     };
 
     const commentCount = async () => {
-        const response = await axios.get(`http://localhost:8000/comment/count/${props.feed_id}`)
+        const response = await axios.get(`http://localhost:8000/comment/count/${props.feed._id}`)
             .catch((err) => {
                 console.log(err);
             });
@@ -160,7 +160,7 @@ function Feed(props) {
                 <p className={style.username}>{props.feed.nickname} ㆍ {timetText}</p>
                 {edit?(
                     <form method='post' onSubmit={submitFeed}>
-                        <input type="hidden" name="user_id" value={user._id} />
+                        <input type="hidden" name="user_id" value={props.feed.user_id} />
                         <input type="hidden" name="category" value={props.feed.category} />
                         <input className={style.title} type="text" name="title" value={t} onChange={(e)=>{setT(e.target.value)}} />
                         <input className={style.content} type="textarea" name="content" value={c} onChange={(e)=>{setC(e.target.value)}} />
@@ -178,8 +178,6 @@ function Feed(props) {
                         <Like key={props.feed._id} feed_id={props.feed._id} isLoggedIn={isLoggedIn} />
                     </div>
                     <a className={style.comment} onClick={commentClick}><FaRegCommentAlt />{countComment}</a>
-                    {user && user._id === props.user_id ? (
-                    <a className={style.comment} onClick={commentClick}><FaRegCommentAlt />1.4k</a>
                     {!edit && user && user._id === props.feed.user_id ? (
                         <div className={style.deledit}>
                             <button className={style.delete} onClick={deleteFeed}><MdDeleteForever /></button>
@@ -188,10 +186,10 @@ function Feed(props) {
                     ) : null}
                 </div>
                 <div style={{ display: commentView ? 'block' : 'none' }}>
-                    <form onSubmit={commentSubmit} key={props.feed_id}>
+                    <form onSubmit={commentSubmit} key={props.feed._id}>
                         <input type="text" value={comment.comment} onChange={commentChange} name='comment' className={style.comment_box}></input>
-                        <input type="hidden" value={props.feed_id} name='feed_id'></input>
-                        <input type="hidden" value={props.user_id} name='user_id'></input>
+                        <input type="hidden" value={props.feed._id} name='feed_id'></input>
+                        <input type="hidden" value={props.feed.user_id} name='user_id'></input>
                         <input type="submit" value="작성" className={style.commentBtn}></input>
                     </form>
                 </div>
