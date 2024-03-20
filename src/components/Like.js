@@ -50,15 +50,13 @@ function Like(props) {
                 });
             }
         } else {
-            if(pawButton.current.classList.contains('liked')){
-                pawButton.current.classList.remove('animation', 'liked', 'confetti');
+            if(pawButton.current){
+                if(pawButton.current.classList.contains('liked')){
+                    pawButton.current.classList.remove('animation', 'liked', 'confetti');
+                }
             }
-            pawButton.current.addEventListener('click', e => {
-                alert('로그인이 필요한 서비스입니다.');
-                e.preventDefault();
-            });
         }
-    }, []);
+    }, [props.isLoggedIn]);
 
     function likeFeed() {
         if(like){
@@ -71,6 +69,10 @@ function Like(props) {
     }
 
     const isLiked = async () => {
+        if(!user){
+            alert('로그인이 필요한 서비스입니다.');
+            return;
+        }
         const response = await axios.get(`http://localhost:8000/feed/like/${props.feed_id}/${user._id}`);
         if (response.data) {
             pawButton.current.classList.add('animation', 'liked', 'confetti');
