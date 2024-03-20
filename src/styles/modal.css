@@ -48,6 +48,7 @@
     padding: 15px 16px;
     border-top: 1px solid hwb(0 77% 23%);
     text-align: center;
+    margin-top: 17px;
   }
   .modal > section > footer button {
     padding: 6px 12px;
