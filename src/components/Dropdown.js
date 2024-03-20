@@ -19,7 +19,7 @@ function Dropdown() {
     alert('로그아웃')
 
     // = 메인페이지로 리다이렉트.. import { useNavigate } from 'react-router-dom' 필요
-    navigate('/');
+    window.location.reload();
   };
 
 

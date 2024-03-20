@@ -26,6 +26,7 @@ function Like(props) {
             isLiked();
             if (pawButton.current) {
                 pawButton.current.addEventListener('click', e => {
+                    if(user==null) return;
                     let number = pawButton.current.children[1].textContent;
                     if (!pawButton.current.classList.contains('animation')) {
                         pawButton.current.classList.add('animation');
@@ -50,17 +51,19 @@ function Like(props) {
                 });
             }
         } else {
-            if(pawButton.current.classList.contains('liked')){
-                pawButton.current.classList.remove('animation', 'liked', 'confetti');
+            if(pawButton.current){
+                if(pawButton.current.classList.contains('liked')){
+                    pawButton.current.classList.remove('animation', 'liked', 'confetti');
+                }
             }
-            pawButton.current.addEventListener('click', e => {
-                alert('로그인이 필요한 서비스입니다.');
-                e.preventDefault();
-            });
         }
-    }, []);
+    }, [props.isLoggedIn]);
 
     function likeFeed() {
+        if(user==null){
+            alert('로그인이 필요한 서비스입니다.');
+            return;
+        }
         if(like){
             axios.post(`http://localhost:8000/feed/unlike/${props.feed_id}/${user._id}`);
             setLike(false);

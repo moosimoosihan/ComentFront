@@ -35,9 +35,9 @@ function App() {
         cookies.remove('jwt'); //토큰 변조시 토큰삭제해서 강제 로그아웃
         console.error("사용자 정보를 불러오는데 실패했습니다.", error);
      });
-    }else {
+    } else {
       sessionStorage.removeItem('userInfo')
-    console.log('토큰이 없습니다.');
+      console.log('토큰이 없습니다.');
     }
   }, []);
   

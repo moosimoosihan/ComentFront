@@ -2,13 +2,11 @@ import React, { useState, useRef } from "react";
 import "../styles/modal.css";
 import { PropTypes } from 'prop-types';
 
-
-
 const Modal = (props) => {
 
   Modal.propTypes = {
-    open: PropTypes.boolean,
-    close: PropTypes.boolean,
+    open: PropTypes.bool,
+    close: PropTypes.func,
   }
 
   const { open, close } = props;
