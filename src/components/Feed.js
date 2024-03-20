@@ -1,6 +1,5 @@
 import style from '../styles/Feed.module.css';
 import { PropTypes } from 'prop-types';
-import useAuth from "../Auth";
 import axios from 'axios';
 import { BiEdit } from "react-icons/bi";
 import { FaRegCommentAlt } from "react-icons/fa";
@@ -11,6 +10,8 @@ import { useEffect, useState } from 'react';
 function Feed(props) {
     Feed.propTypes = {
         feed: PropTypes.object.isRequired,
+        user: PropTypes.object.isRequired,
+        isLoggedIn: PropTypes.bool.isRequired
     }
 
     const [commentView, setCommentView] = useState(false);
@@ -35,7 +36,7 @@ function Feed(props) {
             feed_id: props.feed._id,
         };
 
-        if (!isLoggedIn) {
+        if (!props.isLoggedIn) {
             alert("로그인 후 이용가능합니다");
             return false;
         }
@@ -69,19 +70,11 @@ function Feed(props) {
                 console.log(err);
             });
         setCountComment(response.data);
-        console.log(response);
     }
 
     useEffect(() => {
         commentCount();
-    }, [])
-
-    let user = null;
-    const isLoggedIn = useAuth();
-    if (isLoggedIn) {
-        user = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
-    }
-
+    }, []);
 
     async function deleteFeed() {
         // 삭제 여부 확인
@@ -175,10 +168,10 @@ function Feed(props) {
                 )}
                 <div className={style.other_container}>
                     <div className={style.like_box}>
-                        <Like key={props.feed._id} feed_id={props.feed._id} isLoggedIn={isLoggedIn} />
+                        <Like key={props.feed._id} feed_id={props.feed._id} isLoggedIn={props.isLoggedIn} />
                     </div>
                     <a className={style.comment} onClick={commentClick}><FaRegCommentAlt />{countComment}</a>
-                    {!edit && user && user._id === props.feed.user_id ? (
+                    {!edit && props.user._id === props.feed.user_id._id ? (
                         <div className={style.deledit}>
                             <button className={style.delete} onClick={deleteFeed}><MdDeleteForever /></button>
                             <button className={style.edit} onClick={()=>{editFeed(true)}}><BiEdit /></button>
@@ -189,7 +182,7 @@ function Feed(props) {
                     <form onSubmit={commentSubmit} key={props.feed._id}>
                         <input type="text" value={comment.comment} onChange={commentChange} name='comment' className={style.comment_box}></input>
                         <input type="hidden" value={props.feed._id} name='feed_id'></input>
-                        <input type="hidden" value={props.feed.user_id} name='user_id'></input>
+                        <input type="hidden" value={props.feed.user_id._id} name='user_id'></input>
                         <input type="submit" value="작성" className={style.commentBtn}></input>
                     </form>
                 </div>
