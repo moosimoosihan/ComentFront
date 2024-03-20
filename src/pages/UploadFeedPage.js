@@ -3,7 +3,7 @@ import useAuth from "../Auth";
 import axios from 'axios';
 
 function UploadFeedPage() {
-    const { isLoggedIn } = useAuth();
+    const isLoggedIn = useAuth();
     const gotoHome = () => {
         window.location.href = '/';
     }
