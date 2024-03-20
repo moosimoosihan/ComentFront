@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Button from "../../styles/ProfileCate.module.css";
 import Profile from "./ProfileInfo";
 import MyFeed from "./MyFeed";
+import Header from '../../components/Header';
 
 export default function MyPage() {
     const [showCategory, setShowCategory] = useState(false);
@@ -18,6 +19,8 @@ export default function MyPage() {
     }
 
   return (
+    <div>
+      <Header />
       <div className={Button.header}>
         <button name="profile" className={Button.button} onClick={handleProfileClick}>
           profile
@@ -29,6 +32,7 @@ export default function MyPage() {
         <button name="like" className={Button.button}>like</button>
         {showCategory && <Profile />}
         {showFeed && <MyFeed />}
+      </div>
       </div>
   );
 }
