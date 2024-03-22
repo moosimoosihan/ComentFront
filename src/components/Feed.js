@@ -114,13 +114,15 @@ function Feed(props) {
         }
 
         await axios.post(`http://localhost:8000/feed/${props.feed._id}`, {
+            user_id: props.user._id,
             title: t,
-            content: c,
-            category: props.feed.category
+            category: props.feed.category,
+            content: c
         }).then((response) => {
-            if (response.status === 201) {
-                alert('수정 성공');
-                window.location.reload();
+            if (response.status === 200) {
+                props.feed.title = t;
+                props.feed.content = c;
+                editFeed(false);
             }
         }).catch(() => {
             alert('수정 실패');
@@ -155,10 +157,10 @@ function Feed(props) {
                     <form method='post' onSubmit={submitFeed}>
                         <input type="hidden" name="user_id" value={props.feed.user_id} />
                         <input type="hidden" name="category" value={props.feed.category} />
-                        <input className={style.title} type="text" name="title" value={t} onChange={(e)=>{setT(e.target.value)}} />
-                        <input className={style.content} type="textarea" name="content" value={c} onChange={(e)=>{setC(e.target.value)}} />
-                        <button onClick={()=>{editFeed(false)}}>취소</button>
-                        <input type="submit" value="수정하기" />
+                        <input className={style.editTitle} type="text" name="title" value={t} onChange={(e)=>{setT(e.target.value)}} /><br/>
+                        <textarea className={style.content} name="content" value={c} onChange={(e)=>{setC(e.target.value)}} />
+                        <input className={style.editSubmitBtn} type="submit" value="Edit" />
+                        <button className={style.editCancelBtn} onClick={()=>{editFeed(false)}}>Cancel</button>
                     </form>
                 ):(
                     <>
