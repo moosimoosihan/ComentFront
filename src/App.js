@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage/MyPage';
-import LoginPage from './pages/LoginPage';
+import LoginMiddleware from './pages/loginMiddleware';
 import { Cookies } from "react-cookie";
 import axios from "axios";
 import { useEffect } from "react";
@@ -46,7 +46,7 @@ function App() {
       <Route path="/category/:category" element={<MainPage />} />
       <Route path="/search/:keyword" element={<MainPage />} />
       <Route path="/myPage/:user_no" element={<MyPage />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/login" element={<LoginMiddleware />} />
     </Routes>
   </Router>;
 }

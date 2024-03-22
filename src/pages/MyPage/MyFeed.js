@@ -33,11 +33,9 @@ function MyPage() {
       {feed.map((item) => (
         <Feed
           key={item._id}
-          feed_id={item._id}
-          nickname={item.user_id.nickname}
-          content={item.content}
-          title={item.title}
-          user_id={item.user_id._id}
+          feed={item}
+          user={user}
+          isLoggedIn={isLoggedIn}
         />
       ))}
     </div>
