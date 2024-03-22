@@ -125,3 +125,32 @@ p:hover {
   margin-left: 10px;
   margin-top: 10px;
 }
+textarea {
+  width: 100%;
+  height: 5rem;
+  border: none;
+  border-bottom: 1px solid black;
+  resize: none;
+}
+.editCancelBtn{
+  float: right;
+  background: none;
+  border: solid 2px rgb(0, 0, 0);
+  font-size: 20px;
+  margin: 10px;
+}
+
+.editSubmitBtn{
+  float: right;
+  background: none;
+  font-size: 20px;
+  margin: 10px;
+}
+.editTitle{
+  border:none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+
+}
