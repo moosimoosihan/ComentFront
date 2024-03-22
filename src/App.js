@@ -27,8 +27,6 @@ function App() {
           socialType: res.data.socialType,
         };
         sessionStorage.setItem('userinfo', JSON.stringify(userInfo));
-        //jwt쿠키에서 뽑아낸 userInfo값을 sessionStorage에 json형식으로 저장
-        console.log(userInfo);
       }).catch((error) => {
         sessionStorage.removeItem('userInfo')
         cookies.remove('jwt'); //토큰 변조시 토큰삭제해서 강제 로그아웃
