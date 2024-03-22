@@ -1,22 +1,24 @@
 import style from '../styles/Feed.module.css';
 import { PropTypes } from 'prop-types';
-import useAuth from "../Auth";
 import axios from 'axios';
 import { BiEdit } from "react-icons/bi";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import Like from './Like';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Feed(props) {
     Feed.propTypes = {
         feed: PropTypes.object.isRequired,
+        user: PropTypes.object.isRequired,
+        isLoggedIn: PropTypes.bool.isRequired
     }
 
     const [commentView, setCommentView] = useState(false);
     const [comment, setComment] = useState({
-        comment: "",
+        comment: '',
     });
+    const [countComment, setCountComment] = useState(0)
 
     const commentChange = (e) => {
         setComment({
@@ -30,12 +32,21 @@ function Feed(props) {
 
         const commentData = {
             comment: comment.comment,
+            user_id: props.feed.user_id,
+            feed_id: props.feed._id,
         };
+
+        if (!props.isLoggedIn) {
+            alert("로그인 후 이용가능합니다");
+            return false;
+        }
+
+        console.log(commentData);
 
         await axios
             .post("http://localhost:8000/comment", commentData)
             .then((response) => {
-                if(response.status === 201){
+                if (response.status === 201) {
                     alert("comment upload success");
                 }
             })
@@ -53,12 +64,17 @@ function Feed(props) {
         }
     };
 
-    let user = null;
-    const isLoggedIn = useAuth();
-    if (isLoggedIn) {
-        user = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
+    const commentCount = async () => {
+        const response = await axios.get(`http://localhost:8000/comment/count/${props.feed._id}`)
+            .catch((err) => {
+                console.log(err);
+            });
+        setCountComment(response.data);
     }
 
+    useEffect(() => {
+        commentCount();
+    }, []);
 
     async function deleteFeed() {
         // 삭제 여부 확인
@@ -137,7 +153,7 @@ function Feed(props) {
                 <p className={style.username}>{props.feed.nickname} ㆍ {timetText}</p>
                 {edit?(
                     <form method='post' onSubmit={submitFeed}>
-                        <input type="hidden" name="user_id" value={user._id} />
+                        <input type="hidden" name="user_id" value={props.feed.user_id} />
                         <input type="hidden" name="category" value={props.feed.category} />
                         <input className={style.title} type="text" name="title" value={t} onChange={(e)=>{setT(e.target.value)}} />
                         <input className={style.content} type="textarea" name="content" value={c} onChange={(e)=>{setC(e.target.value)}} />
@@ -152,20 +168,22 @@ function Feed(props) {
                 )}
                 <div className={style.other_container}>
                     <div className={style.like_box}>
-                        <Like key={props.feed._id} feed_id={props.feed._id} isLoggedIn={isLoggedIn} />
+                        <Like key={props.feed._id} feed_id={props.feed._id} isLoggedIn={props.isLoggedIn} />
                     </div>
-                    <a className={style.comment} onClick={commentClick}><FaRegCommentAlt />1.4k</a>
-                    {!edit && user && user._id === props.feed.user_id ? (
+                    <a className={style.comment} onClick={commentClick}><FaRegCommentAlt />{countComment}</a>
+                    {!edit && props.user && props.user._id === props.feed.user_id._id ? (
                         <div className={style.deledit}>
                             <button className={style.delete} onClick={deleteFeed}><MdDeleteForever /></button>
                             <button className={style.edit} onClick={()=>{editFeed(true)}}><BiEdit /></button>
                         </div>
                     ) : null}
                 </div>
-                <div style={{ display: commentView ? 'block' : 'none'}}>
-                    <form onSubmit={commentSubmit}>
+                <div style={{ display: commentView ? 'block' : 'none' }}>
+                    <form onSubmit={commentSubmit} key={props.feed._id}>
                         <input type="text" value={comment.comment} onChange={commentChange} name='comment' className={style.comment_box}></input>
-                        <input type="submit" value="작성"></input>
+                        <input type="hidden" value={props.feed._id} name='feed_id'></input>
+                        <input type="hidden" value={props.feed.user_id._id} name='user_id'></input>
+                        <input type="submit" value="작성" className={style.commentBtn}></input>
                     </form>
                 </div>
             </div>

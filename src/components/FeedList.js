@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Feed from './Feed';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import useAuth from "../Auth";
 
 function FeedList(props) {
 
@@ -10,6 +11,11 @@ function FeedList(props) {
         keyword: PropTypes.string,
     }
     const [feeds, setFeeds] = useState([]);
+    let user = null;
+    const isLoggedIn = useAuth();
+    if (isLoggedIn) {
+        user = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
+    }
     useEffect(() => {
         if(props.category){
             const fetchDataCategory = async () => {
@@ -34,7 +40,7 @@ function FeedList(props) {
     return (
         <>
             {feeds.map((feed) => (
-                <Feed key={feed._id} feed={feed} />
+                <Feed key={feed._id} feed={feed} user={user} isLoggedIn={isLoggedIn} />
             ))}
         </>
     );

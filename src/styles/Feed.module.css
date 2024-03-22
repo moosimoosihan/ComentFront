@@ -106,9 +106,22 @@ p:hover {
 }
 .comment_box {
   padding: 10px;
-  width: 100%;
+  margin: 10px;
+  width: 95%;
   height: 100px;
   border: 1px solid black;
   border-radius: 10px;
   font-size: 17px;
+}
+.commentBtn {
+  position: relative;
+  bottom: 10px;
+  left: 89%;
+  background: none;
+  border: 1px solid rgb(155, 155, 155);
+  border-radius: 10px;
+  width: 70px;
+  height: 40px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
