@@ -34,14 +34,14 @@ function Dropdown() {
     return (
       <>
         <div className={styles.sideBar}>
-          <li>
+          <li onClick={logout}>
             <div className={styles.logoutDiv}>
-              <a className={styles.logout} onClick={logout}>로그아웃</a>
+              <a className={styles.logout} >로그아웃</a>
             </div>
           </li>
-          <li>
+          <li onClick={goMypage}>
             <div className={styles.mypageDiv}>
-              <a className={styles.mypage} onClick={goMypage}>마이페이지</a>
+              <a className={styles.mypage} >마이페이지</a>
             </div>
           </li>
         </div>

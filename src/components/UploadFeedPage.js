@@ -16,7 +16,7 @@ function UploadFeedPage() {
             return;
         }
     }
-    const [userInfo, setUserInfo] = useState({});
+    const [userInfo, setUserInfo] = useState({_id: ''});
     useEffect(() => {
         if(sessionStorage.getItem('userinfo')){
             setUserInfo(JSON.parse(sessionStorage.getItem('userinfo')));
@@ -24,6 +24,9 @@ function UploadFeedPage() {
             navigate('/login');
         }
     },[]);
+
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
 
     return (
         <div className={styled.container}>
@@ -41,8 +44,8 @@ function UploadFeedPage() {
                         <option value="Television">Television</option>
                         <option value="Celebrity">Celebrity</option>
                     </select>
-                    <input type="text" name="title" />
-                    <input type="textarea" name="content" />
+                    <input type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} />
+                    <input type="textarea" name="content" value={content} onChange={e => setContent(e.target.value)} />
                     <input type="submit" value="업로드" />
                 </form>
             </div>

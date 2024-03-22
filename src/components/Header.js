@@ -1,11 +1,9 @@
 import React, { useState,useEffect } from "react"
-import logoImg from './logoImg.png';
 import { CiSearch } from "react-icons/ci";
 import styles from "../styles/header.module.css";
 import Modal from "../components/Modal"
 import "../styles/modal.css";
 import { CiMenuBurger } from "react-icons/ci";
-import { CiSquarePlus } from "react-icons/ci";
 import SideBar from "./SideBar";
 import Dropdown from "./Dropdown";
 import axios from "axios";
@@ -14,7 +12,6 @@ import { useNavigate } from 'react-router-dom';
 
 //로그인정보 관련
 import useAuth from "../Auth";
-import { func } from "prop-types";
 
 function Header() {
 
@@ -79,7 +76,7 @@ function Header() {
           <div className="logoBox">
             <a
               href='/'
-            ><img className={styles.logoImg} src={logoImg} /></a>
+            ><img className={styles.logoImg} src='/logoImg.png' /></a>
           </div> 
           <div className="searchBar">
             <div className={styles.searchBox}>
@@ -90,16 +87,12 @@ function Header() {
             </div>
           </div>     
           {isLoggedIn?(<div className={styles.profileBox}>
-            <div className={styles.uploadDiv}>
-              <a href="http://localhost:3000/uploadFeed" className={styles.upload}>
-              <CiSquarePlus size="50" color="#c0c0c0" /></a>
-            </div>
             <div className={styles.nickDiv}>
               <a className={styles.nick}>ID: {info.nickname}</a>
             </div>
             <div className={styles.profDiv}>
               <ul className={styles.dropdown} onClick={() => {setView(!view)}}>
-              <img className={styles.profImg} src="./profile.png"  width="50px" height="50px"></img>
+              <img className={styles.profImg} src="/profile.png"  width="50px" height="50px"></img>
               {view && <Dropdown />}
               </ul>
             </div>
