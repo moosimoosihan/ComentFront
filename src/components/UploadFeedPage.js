@@ -10,7 +10,7 @@ function UploadFeedPage() {
             e.preventDefault();
             return;
         }
-        if(document.querySelector('input[name="content"]').value === ''){
+        if(document.querySelector('textarea[name="content"]').value === ''){
             alert('내용을 입력해주세요.');
             e.preventDefault();
             return;
@@ -50,7 +50,7 @@ function UploadFeedPage() {
                         <input className={styled.title} type="text" name="title" placeholder="제목을 입력해주세요." value={title} onChange={e => setTitle(e.target.value)} />
                     </div>
                     <div className={styled.contentBox}>
-                        <input className={styled.content} type="textarea" name="content" placeholder="내용을 입력해주세요." value={content} onChange={e => setContent(e.target.value)} />
+                        <textarea className={styled.content} name="content" placeholder="내용을 입력해주세요." value={content} onChange={e => setContent(e.target.value)} />
                     </div>
                     <div className={styled.uploadBox}>
                         <input className={styled.upload} type="submit" value="Upload" />
