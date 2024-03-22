@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from "react"
-import logoImg from './logoImg.png';
 import { CiSearch } from "react-icons/ci";
 import styles from "../styles/header.module.css";
 import Modal from "../components/Modal"
@@ -77,7 +76,7 @@ function Header() {
           <div className="logoBox">
             <a
               href='/'
-            ><img className={styles.logoImg} src={logoImg} /></a>
+            ><img className={styles.logoImg} src='/logoImg.png' /></a>
           </div> 
           <div className="searchBar">
             <div className={styles.searchBox}>
@@ -93,7 +92,7 @@ function Header() {
             </div>
             <div className={styles.profDiv}>
               <ul className={styles.dropdown} onClick={() => {setView(!view)}}>
-              <img className={styles.profImg} src="./profile.png"  width="50px" height="50px"></img>
+              <img className={styles.profImg} src="/profile.png"  width="50px" height="50px"></img>
               {view && <Dropdown />}
               </ul>
             </div>
