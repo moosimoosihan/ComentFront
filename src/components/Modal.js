@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "../styles/modal.css";
 import { PropTypes } from 'prop-types';
 
@@ -31,18 +31,7 @@ const Modal = (props) => {
     }
   };
 
-  // const handleKakaoLogin = () => {
-  //   // 카카오톡 로그인 페이지 URL
-  //   const kakaoLoginUrl = 'http://localhost:3000/kakaoOauth';
-  //   // 새 창에서 카카오톡 로그인 페이지 열기
-  //   window.open(kakaoLoginUrl, '_blank');
-  // };
-
-  const Rest_api_key='676fceb5e807f864a04f35f7f7cd403c' //REST API KEY
-  const redirect_uri = 'http://localhost:3000/kakaoOauth' //Redirect URI
   // oauth 요청 URL
-
-  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`
     const handleKakaoLogin = ()=>{
         window.location.href = 'http://localhost:8000/login/kakao-login-page';
     }
