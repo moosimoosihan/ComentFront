@@ -5,7 +5,6 @@ import styles from "../styles/header.module.css";
 import Modal from "../components/Modal"
 import "../styles/modal.css";
 import { CiMenuBurger } from "react-icons/ci";
-import { CiSquarePlus } from "react-icons/ci";
 import SideBar from "./SideBar";
 import Dropdown from "./Dropdown";
 import axios from "axios";
@@ -14,7 +13,6 @@ import { useNavigate } from 'react-router-dom';
 
 //로그인정보 관련
 import useAuth from "../Auth";
-import { func } from "prop-types";
 
 function Header() {
 
@@ -90,10 +88,6 @@ function Header() {
             </div>
           </div>     
           {isLoggedIn?(<div className={styles.profileBox}>
-            <div className={styles.uploadDiv}>
-              <a href="http://localhost:3000/uploadFeed" className={styles.upload}>
-              <CiSquarePlus size="50" color="#c0c0c0" /></a>
-            </div>
             <div className={styles.nickDiv}>
               <a className={styles.nick}>ID: {info.nickname}</a>
             </div>

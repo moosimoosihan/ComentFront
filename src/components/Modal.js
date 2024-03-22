@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useRef } from "react";
 import "../styles/modal.css";
 import { PropTypes } from 'prop-types';
 
