@@ -125,11 +125,17 @@ p:hover {
   margin-left: 10px;
   margin-top: 10px;
 }
-textarea {
+.editContent {
   width: 100%;
   height: 5rem;
   border: none;
   border-bottom: 1px solid black;
+  resize: none;
+}
+textarea {
+  width: 100%;
+  height: 5rem;
+  border: none;
   resize: none;
 }
 .editCancelBtn{

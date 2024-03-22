@@ -56,7 +56,7 @@ function Feed(props) {
     }
 
     const commentClick = () => {
-        const commentBtn = document.querySelector('.comment');
+        // const commentBtn = document.querySelector('.comment');
         if (commentView === false) {
             setCommentView(true);
         } else {
@@ -165,7 +165,7 @@ function Feed(props) {
                 ):(
                     <>
                         <h1 className={style.title}>{props.feed.title}</h1>
-                        <p className={style.content}>{props.feed.content}</p>
+                        <textarea className={style.content} readOnly value={props.feed.content} />
                     </>
                 )}
                 <div className={style.other_container}>
