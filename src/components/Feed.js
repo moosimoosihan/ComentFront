@@ -152,7 +152,7 @@ function Feed(props) {
         <div className={style.feed_container}>
             <div className={style.feed}>
                 <div className={style.profile}></div>
-                <p className={style.username}>{props.feed.nickname} ㆍ {timetText}</p>
+                <p className={style.username}>{props.feed.user_id.nickname} ㆍ {timetText}</p>
                 {edit?(
                     <form method='post' onSubmit={submitFeed}>
                         <input type="hidden" name="user_id" value={props.feed.user_id} />
