@@ -30,45 +30,39 @@ const SideBar = () => {
                         },
                         {
                             title: 'Popular',
-                            itemId: '/Popular',
+                            itemId: '/category/Popular',
                             elemBefore: () => <GoArrowUpRight size="27" color="black" />,
                         },
                         {
-                            title: 'TOPICS',
-                            itemId: '',
-                            subNav: [
-                                {
-                                    title: 'Gaming',
-                                    itemId: '/category/Gaming',
-                                    elemBefore: () => <FaGamepad size="27" color="black" />,
-                                },
-                                {
-                                    title: 'Sports',
-                                    itemId: '/category/Sports',
-                                    elemBefore: () => <MdOutlineSportsBaseball size="27" color="black" />,
-                                },
-                                {
-                                    title: 'Business',
-                                    itemId: '/category/Business',
-                                    elemBefore: () => <GoGraph size="27" color="black" />,
-                                },
-                                {
-                                    title: 'Crypto',
-                                    itemId: '/category/Crypto',
-                                    elemBefore: () => <SiBlockchaindotcom size="27" color="black" />,
-                                },
-                                {
-                                    title: 'Television',
-                                    itemId: '/category/Television',
-                                    elemBefore: () => <PiTelevision size="27" color="black" />,
-                                },
-                                {
-                                    title: 'Celebrity',
-                                    itemId: '/category/Celebrity',
-                                    elemBefore: () => <MdStarBorder size="27" color="black" />,
-                                },
-                            ],
-                        }
+                            title: 'Gaming',
+                            itemId: '/category/Gaming',
+                            elemBefore: () => <FaGamepad size="27" color="black" />,
+                        },
+                        {
+                            title: 'Sports',
+                            itemId: '/category/Sports',
+                            elemBefore: () => <MdOutlineSportsBaseball size="27" color="black" />,
+                        },
+                        {
+                            title: 'Business',
+                            itemId: '/category/Business',
+                            elemBefore: () => <GoGraph size="27" color="black" />,
+                        },
+                        {
+                            title: 'Crypto',
+                            itemId: '/category/Crypto',
+                            elemBefore: () => <SiBlockchaindotcom size="27" color="black" />,
+                        },
+                        {
+                            title: 'Television',
+                            itemId: '/category/Television',
+                            elemBefore: () => <PiTelevision size="27" color="black" />,
+                        },
+                        {
+                            title: 'Celebrity',
+                            itemId: '/category/Celebrity',
+                            elemBefore: () => <MdStarBorder size="27" color="black" />,
+                        },
                     ]}
                 />
             </div>
