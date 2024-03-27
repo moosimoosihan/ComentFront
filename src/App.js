@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage/MyPage';
+import FeedPage from './pages/FeedPage';
 import LoginPage from './pages/LoginPage';
 import { Cookies } from "react-cookie";
 import axios from "axios";
@@ -43,6 +44,7 @@ function App() {
   return <Router>
     <Routes>
       <Route path="/" element={<MainPage />} />
+      <Route path="/feed/:feed_id" element={<FeedPage />} />
       <Route path="/category/:category" element={<MainPage />} />
       <Route path="/search/:keyword" element={<MainPage />} />
       <Route path="/myPage/:user_no" element={<MyPage />} />

@@ -32,7 +32,7 @@ function UploadFeedPage() {
                         <option value="Celebrity">Celebrity</option>
                     </select>
                     <input type="text" name="title" />
-                    <input type="textarea" name="content" />
+                    <input type="textarea" name="content" className={styled.feedContent} />
                     <input type="submit" value="업로드" />
                 </form>
             </div>

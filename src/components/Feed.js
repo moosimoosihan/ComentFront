@@ -6,6 +6,7 @@ import { FaRegCommentAlt } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import Like from './Like';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Feed(props) {
     Feed.propTypes = {
@@ -162,7 +163,7 @@ function Feed(props) {
                     </form>
                 ):(
                     <>
-                        <h1 className={style.title}>{props.feed.title}</h1>
+                        <h1 className={style.title}><Link to={`/feed/${props.feed._id}`}>{props.feed.title}</Link></h1>
                         <p className={style.content}>{props.feed.content}</p>
                     </>
                 )}
