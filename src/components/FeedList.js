@@ -18,10 +18,18 @@ function FeedList(props) {
     }
     useEffect(() => {
         if(props.category){
-            const fetchDataCategory = async () => {
-                const response = await axios.get(`http://localhost:8000/feed/category/${props.category}`);
-                setFeeds(response.data);
-            };
+            let fetchDataCategory = null;
+            if(props.category==='popular'){
+                fetchDataCategory = async () => {
+                    const response = await axios.get('http://localhost:8000/feed/category/Popular');
+                    setFeeds(response.data);
+                };
+            } else {
+                fetchDataCategory = async () => {
+                    const response = await axios.get(`http://localhost:8000/feed/category/${props.category}`);
+                    setFeeds(response.data);
+                };
+            }
             fetchDataCategory();
         } else if(props.keyword){
             const fetchDataKeyword = async () => {
