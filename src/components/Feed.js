@@ -164,8 +164,10 @@ function Feed(props) {
                     </form>
                 ):(
                     <>
-                        <h1 className={style.title}>{props.feed.title}</h1>
-                        <textarea className={style.content} readOnly value={props.feed.content} />
+                        <div className={style.contentContainer}>
+                            <h1 className={style.title}>{props.feed.title}</h1>
+                            <textarea className={style.content} readOnly value={props.feed.content} />
+                        </div>
                     </>
                 )}
                 <div className={style.other_container}>

@@ -88,7 +88,7 @@ function Header() {
           </div>     
           {isLoggedIn?(<div className={styles.profileBox}>
             <div className={styles.nickDiv}>
-              <a className={styles.nick}>ID: {info.nickname}</a>
+              <a className={styles.nick}>{info.nickname}님 안녕하세요!</a>
             </div>
             <div className={styles.profDiv}>
               <ul className={styles.dropdown} onClick={() => {setView(!view)}}>

@@ -110,6 +110,10 @@
     padding-top: 15px;
 }
 
+.nick {
+    color: #a3a3a3;
+}
+
 .profDiv {
     width: 30%;
     display: flex;
