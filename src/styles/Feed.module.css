@@ -185,8 +185,8 @@ textarea {
 .editTitle{
   border:none;
   border-bottom: 1px solid black;
-  width: 100%;
+  width: 700px;
   height: 50px;
   font-size: 30px;
-
+  margin-left : 50px;
 }
