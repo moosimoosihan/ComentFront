@@ -132,7 +132,8 @@ function Feed(props) {
     // 경과 시간
     const now = new Date();
     const created = new Date(props.feed.createdAt);
-    const diff = now - created;
+    const updated = new Date(props.feed.updatedAt);
+    const diff = updated > created? now - updated : now - created;
     const diffDays = Math.floor(diff / (1000 * 60 * 60 * 24));
     const diffHours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const diffMinutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -147,6 +148,7 @@ function Feed(props) {
     } else {
         timetText = `${diffSeconds} seconds ago`;
     }
+    timetText = updated > created? `Updated ${timetText}` : timetText;
 
     return (<>
         <div className={style.feed_container}>

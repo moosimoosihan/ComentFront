@@ -141,16 +141,24 @@ textarea {
 .editCancelBtn{
   float: right;
   background: none;
-  border: solid 2px rgb(0, 0, 0);
+  border: solid 2px rgba(163, 163, 163, 0.2);
+  transition: border-color 0.45s;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
   font-size: 20px;
-  margin: 10px;
+  margin-right: 15px;
 }
 
 .editSubmitBtn{
   float: right;
   background: none;
+  border: solid 2px rgba(163, 163, 163, 0.2);
+  transition: border-color 0.45s;
+  width: 70px;
+  height: 40px;
+  border-radius: 5px;
   font-size: 20px;
-  margin: 10px;
 }
 .editTitle{
   border:none;
