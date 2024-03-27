@@ -19,14 +19,12 @@ function MyPage() {
 
     const a = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
 
-    const [email, setEmail] = useState(a.email || '');
+    const [email, setEmail] = useState(a.email);
     const [nickname, setNickname] = useState(a.nickname || '');
-    const [socialType, setSocialType] = useState(a.socialType || '');
+    const [socialType, setSocialType] = useState(a.socialType);
+    const [imageUrl, setImageUrl] = useState('');
+    const [imagePost, setImagePost] = useState('');
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-    
     const handleNicknameChange = (e) => {
         setNickname(e.target.value);
     };
@@ -102,15 +100,57 @@ function MyPage() {
         }
     };
 
+    const handleImageUpload = async (e) => {
+        const file = e.target.files[0];
+        try {
+            const formData = new FormData();
+            formData.append('image', file);
+            const response = await axios.post(`http://localhost:8000/mypage/image/${user._id}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            // 업로드된 이미지 URL을 상태에 저장하고 프로필 사진으로 설정
+            setImageUrl(response.data.imageUrl); // 이미지 URL을 상태에 설정
+            window.alert('프로필 사진이 업로드되었습니다.');
+            console.log(imageUrl)
+        } catch (error) {
+            console.error('이미지 업로드에 실패했습니다.', error);
+        }
+    };
+    
     return (
         <div>
             <div className={styles.mypoto}>
-                <div className={styles.innerbox}>이미지</div>
+                <div className={styles.innerbox}>
+                    <label htmlFor="imageUpload">
+                        {imageUrl ? ( // 이미지 URL이 있으면 이미지를 보여줌
+                            <img src={imageUrl} alt={"Preview"} className={styles.previewImage} />
+                        ) : (
+                            'Upload Image' // 이미지가 없을 경우 업로드 버튼을 보여줌
+                        )}
+                    </label>
+                    <input
+                        type="file"
+                        id="imageUpload"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        style={{ display: 'none' }}
+                    />
+                </div>
                 <div className={styles.span}>
-                <h2>customize profile(optional)</h2>
-                <input className={styles.setname} type="text" value={email} onChange={handleEmailChange} placeholder="profile information" />
+                    <h2>customize profile(optional)</h2>
+                    <input
+                        className={styles.setname}
+                        value={email}
+                        type="text"
+                        placeholder="profile information"
+                        readOnly
+                    />
+
                 </div>
             </div>
+
             <div className={styles.myclass}>
                 <h2>set your nickname(optional)</h2>
                 <p className={styles.graytext}>set your nickname</p>
@@ -118,7 +158,7 @@ function MyPage() {
                 <div className={styles.singleline}></div>
                 <h2>login socialType(optional)</h2>
                 <p className={styles.graytext}>login socialType</p>
-                <input className={styles.nickname} type="text" value={socialType} onChange={handleSocialTypeChange} placeholder="socialType(optional)" />
+                <input className={styles.nickname} type="text" value={socialType} onChange={handleSocialTypeChange} placeholder="socialType(optional)" readOnly/>
                 <div className={styles.singleline}></div>
                 <h2>about(optional)</h2>
                 <p className={styles.graytext}>set your information</p>

@@ -128,8 +128,9 @@
     transition: left 0.3s;
   }
   
-  
-  
-  
-
-  
+  .previewImage {
+    max-width: 140px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+}

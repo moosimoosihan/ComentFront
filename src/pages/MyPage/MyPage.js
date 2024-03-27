@@ -4,10 +4,12 @@ import Button from "../../styles/ProfileCate.module.css";
 import Profile from "./ProfileInfo";
 import MyFeed from "./MyFeed";
 import Header from '../../components/Header';
+import Like from "./Like";
 
 export default function MyPage() {
     const [showCategory, setShowCategory] = useState(false);
     const [showFeed, setShowFeed] = useState(false);
+    const [showLike, setShowLike] = useState(false);
 
     const handleProfileClick = () => {
       setShowCategory(!showCategory);
@@ -17,6 +19,11 @@ export default function MyPage() {
       setShowFeed(!showFeed);
       setShowCategory(false);
     }
+    const handleLikeClick = () => {
+      setShowLike(!showLike);
+      setShowCategory(false);
+      setShowFeed(false);
+    }  
 
   return (
     <div>
@@ -29,9 +36,10 @@ export default function MyPage() {
         <button name="community" className={Button.button}>community</button>
         <button name="comment" className={Button.button}>comment</button>
         <button name="follow" className={Button.button}>follow</button>
-        <button name="like" className={Button.button}>like</button>
+        <button name="like" className={Button.button} onClick={handleLikeClick}>like</button>
         {showCategory && <Profile />}
         {showFeed && <MyFeed />}
+        {showLike && <Like />}
       </div>
       </div>
   );
