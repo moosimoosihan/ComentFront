@@ -9,7 +9,7 @@ import LoginMiddleware from './pages/loginMiddleware';
 import { Cookies } from "react-cookie";
 import axios from "axios";
 import { useEffect } from "react";
-
+import FeedPage from "./pages/FeedPage";
 function App() {
   // 쿠키에 저장된 토큰이 있는지 확인
   const cookies = new Cookies();
@@ -41,6 +41,7 @@ function App() {
   return <Router>
     <Routes>
       <Route path="/" element={<MainPage />} />
+      <Route path="/feed/:feed_id" element={<FeedPage />} />
       <Route path="/category/:category" element={<MainPage />} />
       <Route path="/search/:keyword" element={<MainPage />} />
       <Route path="/myPage/:user_no" element={<MyPage />} />

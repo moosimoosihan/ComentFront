@@ -10,7 +10,7 @@ function UploadFeedPage() {
             e.preventDefault();
             return;
         }
-        if(document.querySelector('input[name="content"]').value === ''){
+        if(document.querySelector('textarea[name="content"]').value === ''){
             alert('내용을 입력해주세요.');
             e.preventDefault();
             return;
@@ -31,22 +31,30 @@ function UploadFeedPage() {
     return (
         <div className={styled.container}>
             <div className={styled.uploadContainer}>
-            <div className={styled.profile} >
-                <img className={styled.profImg} src="./profile.png" width='40px' height='40px'></img>
-            </div>
+                <div className={styled.profile} >
+                    <img className={styled.profImg} src="/profile.png" width='40px' height='40px'></img>
+                </div>
                 <form method='post' action='http://localhost:8000/feed' onSubmit={submitFeed} >
                     <input type="hidden" name="user_id" value={userInfo._id} />
-                    <select name="category" >
-                        <option value="Gaming">Gaming</option>
-                        <option value="Sports">Sports</option>
-                        <option value="Business">Business</option>
-                        <option value="Crypto">Crypto</option>
-                        <option value="Television">Television</option>
-                        <option value="Celebrity">Celebrity</option>
-                    </select>
-                    <input type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} />
-                    <input type="textarea" name="content" value={content} onChange={e => setContent(e.target.value)} />
-                    <input type="submit" value="업로드" />
+                    <div className={styled.select}>
+                        <select className={styled.category} name="category" >
+                            <option value="Gaming">Gaming</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Business">Business</option>
+                            <option value="Crypto">Crypto</option>
+                            <option value="Television">Television</option>
+                            <option value="Celebrity">Celebrity</option>
+                        </select>
+                    </div>
+                    <div className={styled.titleBox}>
+                        <input className={styled.title} type="text" name="title" placeholder="제목을 입력해주세요." value={title} onChange={e => setTitle(e.target.value)} />
+                    </div>
+                    <div className={styled.contentBox}>
+                        <textarea className={styled.content} name="content" placeholder="내용을 입력해주세요." value={content} onChange={e => setContent(e.target.value)} />
+                    </div>
+                    <div className={styled.uploadBox}>
+                        <input className={styled.upload} type="submit" value="Upload" />
+                    </div>
                 </form>
             </div>
         </div>
