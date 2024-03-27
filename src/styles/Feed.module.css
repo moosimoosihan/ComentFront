@@ -44,11 +44,15 @@ button {
 }
 .title {
   font-size: 30px;
+  margin-left : 50px;
 }
 .content {
+  width: 700px;
   font-size: 20px;
   line-height: 25px;
   word-break: break-all;
+  margin-left : 50px;
+  margin-bottom: 20px;
 }
 .other_container {
   width: 100%;
