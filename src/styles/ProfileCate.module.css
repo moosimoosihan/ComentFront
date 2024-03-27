@@ -1,3 +1,7 @@
+.container {
+  margin-top: 120px;
+}
+
 .header {
     justify-content: center;
     align-items: center;
