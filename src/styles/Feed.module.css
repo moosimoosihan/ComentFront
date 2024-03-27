@@ -49,16 +49,24 @@ button {
 .username {
   font-size:15px;
 }
+
+.contentContainer {
+  padding-top: 5px;
+}
+
 .title {
-  font-size: 30px;
+  font-size: 23px;
+  color: #494949;
   margin-left : 50px;
 }
 .content {
   width: 700px;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 25px;
   word-break: break-all;
   outline: none;
+  margin-top: -5px;
+  color: #6c6c6c;
   margin-left : 50px;
   margin-bottom: 20px;
 }
