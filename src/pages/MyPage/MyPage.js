@@ -19,7 +19,7 @@ export default function MyPage() {
     }
 
   return (
-    <div>
+    <div className={Button.container}>
       <Header />
       <div className={Button.header}>
         <button name="profile" className={Button.button} onClick={handleProfileClick}>
