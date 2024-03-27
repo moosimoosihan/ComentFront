@@ -6,7 +6,7 @@
     margin: 0 auto;
     width: 1020px;
   }  
-  .button {
+.button {
     background-color: #ffffff;
     border: none;
     color: rgb(0, 0, 0);
@@ -15,16 +15,18 @@
     text-decoration: none;
     display: inline-block;
     font-size: large;
+    margin-bottom: 20px;
   }
   
-  .button:hover {
+.button:hover {
+    color: #f78f8f;
     transform: scale(1.1);
-    background-color: #d5d5d5;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5%;
+    /* background-color: #ebe9e9; */
+    /* box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 2%;
   }
   
-  .button:hover::after {
+.button:hover::after {
     width: 90%;
   }
   
