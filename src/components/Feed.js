@@ -2,7 +2,7 @@ import style from '../styles/Feed.module.css';
 import { PropTypes } from 'prop-types';
 import axios from 'axios';
 import { BiEdit } from "react-icons/bi";
-import { FaRegCommentAlt } from "react-icons/fa";
+import { FaRegCommentDots } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import Like from './Like';
 import { useEffect, useState } from 'react';
@@ -176,7 +176,7 @@ function Feed(props) {
                     <div className={style.like_box}>
                         <Like key={props.feed._id} feed_id={props.feed._id} isLoggedIn={props.isLoggedIn} />
                     </div>
-                    <a className={style.comment} onClick={commentClick}><FaRegCommentAlt />{countComment}</a>
+                    <a className={style.comment} onClick={commentClick}>{countComment}<FaRegCommentDots /></a>
                     {!edit && props.user && props.user._id === props.feed.user_id._id ? (
                         <div className={style.deledit}>
                             <button className={style.delete} onClick={deleteFeed}><MdDeleteForever /></button>
