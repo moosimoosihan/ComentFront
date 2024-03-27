@@ -32,7 +32,7 @@ function UploadFeedPage() {
         <div className={styled.container}>
             <div className={styled.uploadContainer}>
                 <div className={styled.profile} >
-                    <img className={styled.profImg} src="./profile.png" width='40px' height='40px'></img>
+                    <img className={styled.profImg} src="/profile.png" width='40px' height='40px'></img>
                 </div>
                 <form method='post' action='http://localhost:8000/feed' onSubmit={submitFeed} >
                     <input type="hidden" name="user_id" value={userInfo._id} />
