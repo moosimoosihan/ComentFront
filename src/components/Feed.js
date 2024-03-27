@@ -153,7 +153,9 @@ function Feed(props) {
     return (<>
         <div className={style.feed_container}>
             <div className={style.feed}>
-                <div className={style.profile}></div>
+                <div className={style.profile} >
+                    <img className={style.profImg} src="./profile.png" width='40px' height='40px'></img>
+                </div>
                 <p className={style.username}>{props.feed.user_id.nickname} ㆍ {timetText}</p>
                 {edit?(
                     <form method='post' onSubmit={submitFeed}>
