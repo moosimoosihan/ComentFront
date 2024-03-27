@@ -30,7 +30,7 @@ const SideBar = () => {
                         },
                         {
                             title: 'Popular',
-                            itemId: '/Popular',
+                            itemId: '/category/Popular',
                             elemBefore: () => <GoArrowUpRight size="27" color="black" />,
                         },
                         {
