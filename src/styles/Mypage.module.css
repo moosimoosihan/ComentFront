@@ -53,7 +53,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-  }
+      }
 .switch-container {
     flex-shrink: 0;
     margin-left: 10px; /* 조절할 값 입력 */
