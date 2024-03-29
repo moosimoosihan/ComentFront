@@ -80,7 +80,7 @@ function Header() {
           </div> 
           <div className="searchBar">
             <div className={styles.searchBox}>
-              <input className={styles.searchTxt} type="text" placeholder="ComenT에서 검색하기" onChange={(e) => setKeyword(e.target.value)} />
+              <input className={styles.searchTxt} type="text" placeholder="COMENT에서 검색하기" onChange={(e) => setKeyword(e.target.value)} />
               <button className={styles.searchBtn} onClick={search} >
               <CiSearch size="22" color="#c0c0c0" />
               </button>

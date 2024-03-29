@@ -23,13 +23,13 @@ export default function MyPage() {
       <Header />
       <div className={Button.header}>
         <button name="profile" className={Button.button} onClick={handleProfileClick}>
-          profile
+          Profile
         </button>
-        <button name="feed" className={Button.button} onClick={handleFeedClick}>feed</button>
-        <button name="community" className={Button.button}>community</button>
-        <button name="comment" className={Button.button}>comment</button>
-        <button name="follow" className={Button.button}>follow</button>
-        <button name="like" className={Button.button}>like</button>
+        <button name="feed" className={Button.button} onClick={handleFeedClick}>Feed</button>
+        <button name="community" className={Button.button}>Community</button>
+        <button name="comment" className={Button.button}>Comment</button>
+        <button name="follow" className={Button.button}>Follow</button>
+        <button name="like" className={Button.button}>Like</button>
         {showCategory && <Profile />}
         {showFeed && <MyFeed />}
       </div>

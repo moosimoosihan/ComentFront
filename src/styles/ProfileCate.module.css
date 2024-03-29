@@ -19,8 +19,11 @@
     text-decoration: none;
     display: inline-block;
     font-size: large;
+    position: relative;
     margin-bottom: 20px;
+    transition: color 0.3s ease; /* 폰트 색상 변화에 대한 전환 효과 추가 */
   }
+
   
 .button:hover {
     color: #f78f8f;
@@ -30,7 +33,12 @@
     border-radius: 2%;
   }
   
+.button:focus {
+  color: #f38f8f; /* 포커스되었을 때 색상 변경 */
+  outline: none; /* 포커스 효과 제거 */
+}
+
 .button:hover::after {
     width: 90%;
-  }
+}
   
