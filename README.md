@@ -1,2 +1,2 @@
 Coment sns(prototype)
-raddit clone sns
+-raddit clone sns
