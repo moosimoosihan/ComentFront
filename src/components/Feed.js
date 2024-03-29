@@ -6,7 +6,7 @@ import { FaRegCommentDots } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import Like from './Like';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Feed(props) {
     Feed.propTypes = {
@@ -129,6 +129,8 @@ function Feed(props) {
             alert('수정 실패');
         });
     }
+
+    const navigate = useNavigate();
 
     // 경과 시간
     const now = new Date();

@@ -13,7 +13,9 @@ function Comment(props) {
     <>
       <div className={style.feed_comment_box}>
         <div className={style.feed_comment_info}>
-          <div className={style.feed_comment_profile}></div>
+          <div className={style.feed_comment_profile}>
+            <img className={style.profImg} src="/profile.png" width='40px' height='40px'></img>
+          </div>
           <p className={style.feed_comment_author}>{props.nickname}</p>
           <p className={style.feed_comment_created_at}>2 days ago</p>
         </div>
