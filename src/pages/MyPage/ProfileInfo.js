@@ -8,13 +8,38 @@ import useAuth from "../../Auth";
 function MyPage() {
     const isLoggedIn = useAuth();
     const user = isLoggedIn ? JSON.parse(sessionStorage.getItem('userinfo') || '{}') : null;
-    const [toggleStates, setToggleStates] = useState([false, false, false, false]);
-    const [editContent] = useState([
-        'Allow people to follow you',
-        'Allow people to send you message',
-        'Allow people to read your post',
-        'Online/Offline'
-    ]);
+
+    const [toggleStates, setToggleStates] = useState([
+        { state: false, content: 'Allow people to follow you' },
+        { state: false, content: 'Allow people send your message' },
+        { state: false, content: 'Allow people to read your post' },
+        { state: false, content: 'Online/Offline' }
+      ]);
+      
+      const handleToggle = (index) => {
+        setToggleStates(prevStates => {
+          const newToggleStates = [...prevStates];
+          newToggleStates[index] = { ...newToggleStates[index], state: !newToggleStates[index].state };
+            // 조건에 따라 토글 상태 조작
+            if (newToggleStates[index].state) {
+                // 토글이 켜진 상태일 때는 true로 설정
+                newToggleStates[index] = { ...newToggleStates[index], state: true };
+            } else {
+                // 토글이 꺼진 상태일 때는 false로 설정
+                newToggleStates[index] = { ...newToggleStates[index], state: false };
+            }
+          saveToggleStates(newToggleStates);
+        });
+      };
+      const saveToggleStates = async () => {
+        try {
+          await axios.post('http://localhost:8000/saveToggleStates', { toggleStates });
+          console.log('토글 상태가 서버에 전송되었습니다.');
+        } catch (error) {
+          console.error('토글 상태를 서버에 전송하는 도중 에러가 발생했습니다:', error);
+        }
+      };      
+      
     const [aboutValue, setAboutValue] = useState('');
 
     const a = JSON.parse(sessionStorage.getItem('userinfo') || '{}');
@@ -35,12 +60,7 @@ function MyPage() {
         setSocialType(e.target.value);
     };
     
-    const handleToggle = (index) => {
-        const newToggleStates = [...toggleStates];
-        newToggleStates[index] = !newToggleStates[index];
-        setToggleStates(newToggleStates);
-    };
-
+    
     useEffect(() => {
         const fetchData = async () => {
             if (user && user._id) {
@@ -124,22 +144,21 @@ function MyPage() {
                 <p className={styles.graytext}>set your information</p>
                 <input className={styles.about} type="text" value={aboutValue} onChange={(e) => setAboutValue(e.target.value)} placeholder="about(optional)" onKeyDown={handleKeyDown}/>
                 <div className={styles.singleline}></div>
-                {toggleStates.map((isToggleOn, index) => (
-                    <div key={index} className={styles['toggle-list-item']}>
-                        <span>{editContent[index]}</span>
+                {toggleStates.map((toggle, index) => (
+                     <div key={index} className={styles['toggle-list-item']}>
+                        <span>{toggle.content}</span>
                         <div className="custom-switch-container">
                             <Switch
-                                checked={isToggleOn}
-                                onChange={() => handleToggle(index)}
-                                className="custom-switch"
-                                onColor="#2699E6"
-                                offColor="#A1A1A1"
+                            checked={toggle.state}
+                            onChange={() => handleToggle(index)}
+                            className="custom-switch"
+                            onColor="#2699E6"
+                            offColor="#A1A1A1"
                             />
                         </div>
                     </div>
-                ))}
+                    ))}
             </div>
-            
         </div>
     );
 }

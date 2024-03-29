@@ -202,3 +202,8 @@ a {
   text-decoration: none;
   color: #494949;
 }
+.category{
+  font-size: 15px;
+  color: #6c6c6c;
+  margin-left : 50px;
+}
