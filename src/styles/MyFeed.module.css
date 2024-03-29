@@ -1,0 +1,54 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    border: #4a4a4a;
+}
+
+.raf-comment-field .raf-textarea .raf-textarea__textarea {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    resize: none;
+    background: #f7f7f7;
+    color: #414d54;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px 0 0 4px;
+    padding: 10px 8px;
+    border: 0;
+    margin-left: 8px;
+    position: relative;
+}
+
+.raf-comment-field__group .raf-button {
+    height: 100%;
+    border-radius: 0 4px 4px 0 !important;
+    margin: 0;
+    text-align: left;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.raf-button--primary:disabled {
+    background-color: #199473 !important;
+}
+
+.raf-panel--rounded {
+    border-radius: 4px !important;
+}
+
+.raf-avatar--circle {
+    border-radius: 26% !important;
+}
+
+.card {
+    background-color: white;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+        0 0px 0 1px rgba(10, 10, 10, 0.02);
+    color: #4a4a4a;
+    max-width: 100%;
+    position: relative;
+    padding: 4px 11px !important;
+    margin-top: -16px !important;
+}

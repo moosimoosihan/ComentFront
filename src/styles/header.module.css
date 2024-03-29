@@ -1,0 +1,183 @@
+.logoImg {
+    width: 200px;
+    height: 120px;
+}
+
+.container {
+    position: fixed;
+    display: flex;
+    background-color: white;
+    width: 100%;
+    height: 100px;
+    /* 맨 앞에 표시되도록 */
+    z-index: 100;
+    border-bottom : 2px solid #ececec;
+    top: 0px;
+}
+
+.between {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logoImg {
+    width: 180px;
+    height: 100px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.searchBox {
+    height: 30px;
+    width: 550px;
+    background: white;
+    border-radius: 40px;
+    padding: 10px;
+    border: 1px solid #c0c0c0;
+    margin-top: 30px;
+}
+
+.searchTxt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0px;
+    color: #c0c0c0;
+    font-size: 16px;
+    line-height: 30px;
+    width: 490px;
+    text-align: center;
+    margin-left: 15px;
+}
+
+.searchTxt::placeholder {
+    color: #c0c0c0;
+}
+
+.searchBtn {
+    float: right;
+    width: 40px;
+    height: 100%;
+    border-radius: 50px;
+    background: white;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logBox {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 60px;
+    margin-left: 30px;
+    margin-top: 45px;
+    width: 60px;
+}
+
+.logIn {
+    width: 60px;
+}
+
+
+.logTxt {
+    cursor: pointer;
+    color: #c0c0c0;
+}
+
+.menuShow {
+    margin-top: 35px;
+    margin-left: 25px;
+}
+
+.profileBox {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 80px;
+    margin-left: 30px;
+    margin-top: 15px;
+    width: 300px;
+}
+
+.uploadDiv {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.nickDiv {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.nick {
+    color: #a3a3a3;
+}
+
+.profDiv {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.profImg {
+    cursor: pointer;
+}
+
+
+.sideBar {
+    margin-top: 30px;
+    top: 60px;
+    right: 20px;
+    position: fixed;
+    width: 150px;
+    height: 70px;
+    /* display: flex; */
+}
+
+li {
+    list-style: none
+}
+
+.logoutDiv {
+    text-align: center;
+    margin-top: 13px;
+    border-left: solid 2px #ececec;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoutDiv:hover {
+    background-color: #ececec;
+    cursor: pointer;
+    border-left: solid 2px red;
+}
+
+.logout {
+    line-height: 33px;
+}
+
+.mypageDiv {
+    height: 30px;
+    text-align: center;
+    border-left: solid 2px #ececec;
+}
+
+.mypageDiv:hover {
+    background-color: #ececec;
+    cursor: pointer;
+    border-left: solid 2px red;
+}
+
+.mypage {
+    line-height: 33px;
+}

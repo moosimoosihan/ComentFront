@@ -1,0 +1,27 @@
+.feed_comment_box {
+  width: 100%;
+  min-height: 100px;
+}
+.feed_comment_info {
+  display: flex;
+}
+.feed_comment_profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: aqua;
+}
+.feed_comment_author {
+  font-size: 15px;
+  margin-left: 10px;
+}
+.feed_comment_created_at {
+  font-size: 12px;
+  line-height: 25px;
+  margin-left: 15px;
+}
+.feed_comment_content {
+  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 60px;
+}

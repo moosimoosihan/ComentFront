@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    min-width: 600px;
+    margin: 0 auto;
+    margin-top: 120px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.uploadContainer:hover {
+    background-color: white;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+        0 0px 0 1px rgba(10, 10, 10, 0.02);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.uploadContainer {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.profile {
+    width: 40px;
+    height: 180px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    float: left;
+}
+
+.profImg {
+    margin-top: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+}
+
+.category {
+    border: none;
+    margin-top: 20px;
+}
+
+.titleBox {
+    display: flex;
+    width: 90%;
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    border: solid 1px #e0e0e0;
+    border-radius: 50px;
+}
+
+.title {
+    width: 90%;
+    height: 25px;
+    outline: none;
+    border: none;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.title::placeholder {
+    color: #dadada;
+}
+
+.contentBox {
+    width: 90%;
+    display: flex;
+    margin-bottom: 15px;
+    height: 150px;
+    border-radius: 15px;
+    border: solid 1px #e0e0e0;
+}
+
+.content {
+    width: 90%;
+    height: 140px;
+    outline: none;
+    border: none;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.content::placeholder {
+    color: #dadada;
+}
+
+.uploadBox {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.upload {
+    background-color: #ffffff;
+    border: solid 1px #dadada;
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+    position: relative;
+    right: 28px;
+}
